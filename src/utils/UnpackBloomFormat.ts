@@ -1,0 +1,66 @@
+import type { TimedTextSegment } from "./TimedTextSegment";
+
+const HTM_FIELD_NAME = "data-audiorecordingendtimes";
+//this property is followed by a string listing n space-separated times
+//the same line will have an id property, which is the name of the audio file, minus the ".mp3"
+//after that, the sentences/phrases will be the next n innerText attributes
+
+type parsingProblem = {
+    audioFileName:string,
+    targetSegments:TimedTextSegment[]
+}
+
+export async function getProblemFromFiles(htmPath:string) : Promise<parsingProblem[]> {
+    const htmFileResponse = await fetch(htmPath);
+    const htmFileContent = await htmFileResponse.text();
+
+    const parser = new DOMParser();
+    const dom = parser.parseFromString(htmFileContent, "text/html");
+
+    const pageTextContainer = dom.getElementsByClassName("bloom-editable audio-sentence bloom-postAudioSplit normal-style bloom-visibility-code-on bloom-content1")!;
+
+    const problems = [];
+
+    for(const pageTextCont of pageTextContainer){
+        const afp = `${pageTextCont.id}.mp3`;
+
+        const endTimesString = pageTextCont.getAttribute(HTM_FIELD_NAME);
+        const endTimes = endTimesString?.split(" ").map(parseFloat)!;
+
+        const segments :TimedTextSegment[] = [];
+        let segI = 0;
+       
+        const paragraphContainers = pageTextCont.childNodes!;
+        for(const paragraphContainer of paragraphContainers){
+            const phraseContainers = paragraphContainer.childNodes!;
+
+            for(const thisContainer of phraseContainers){
+                if(thisContainer instanceof HTMLSpanElement){
+                    let startT = 0;
+                    if(segI > 0) startT = segments[segI-1].end;
+                    const seg = {
+                        start: startT,
+                        end: endTimes[segI],
+                        text: thisContainer.innerText
+                    }
+                    segments.push(seg);
+                    segI++;
+                }
+            }
+        }
+        if(segments.length != endTimes.length){
+            console.error(`number of text segments (${segments.length}) does not match number of end times (${endTimes.length})`)
+        }
+
+        problems.push({
+            audioFileName:afp,
+            targetSegments: segments
+        })
+    }
+
+    if(problems.length != pageTextContainer.length){
+        console.error("Failed to parse all problems");
+    }
+
+    return problems;
+}
