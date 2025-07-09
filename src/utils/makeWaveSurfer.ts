@@ -1,7 +1,6 @@
 import WaveSurfer from "wavesurfer.js";
 import RegionsPlugin from "wavesurfer.js/dist/plugins/regions.js";
 import type { TimedTextSegment } from "./TimedTextSegment";
-import { pauseIntervals } from "../FindPauses";
 
 export async function makeWaveSurfer(containerID:string, soundfile:string, segments: TimedTextSegment[], highlightPauses:boolean){
     const cont = document.getElementById(containerID)!;

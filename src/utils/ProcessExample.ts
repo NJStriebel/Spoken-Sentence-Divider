@@ -1,6 +1,9 @@
 import type {TimedTextSegment} from "./TimedTextSegment"
+import type { pausesResult } from "./EvaluatePauses"
 import {errorsOnSegmentation} from "./ErrorCalc"
 import {makeWaveSurfer} from "./makeWaveSurfer"
+import { evaluatePauses } from "./EvaluatePauses"
+import { evaluateSplits } from "./EvaluateSplits"
 
 export type decodingAlgorithm = {
     name:string,
@@ -8,19 +11,33 @@ export type decodingAlgorithm = {
     findPauses?:(audioData:number[], duration:number)=>TimedTextSegment[]
 }
 
-type runResult = {
+export type decodeResult = {
     segs:TimedTextSegment[],
-    mse:number,
-    worstError:number
+    mse?:number,
+    correct?:number,
+    outOf?:number
 }
+
+export async function runWithoutDisplay(targetSegs:TimedTextSegment[], audiofile:string, algorithm:decodingAlgorithm):Promise<pausesResult|decodeResult>{
+    const ws = await makeWaveSurfer("main-wavesurfer", audiofile, targetSegs, false);
+
+    const audio = Array.from( ws.getDecodedData()?.getChannelData(0)! );
+
+    const duration = ws.getDuration();
+
+    return runOneAlgorithm(targetSegs, audio, duration, algorithm);
+}
+
 
 export async function runAndDisplay(targetSegs:TimedTextSegment[], audiofile:string, algorithms:decodingAlgorithm[]){
     const ws = await makeWaveSurfer("main-wavesurfer", audiofile, targetSegs, false);
 
     const sents = document.getElementById("sentences")!;
     sents.innerText = targetSegs.reduce((msg, thisSeg, thisIndex)=>{
-        if(thisIndex > 0) return msg + "\n" + thisSeg.text;
-        else return msg + thisSeg.text;
+        if(thisIndex === 0) return msg + thisSeg.text;
+        else if(thisIndex < 5) return msg + "\n" + thisSeg.text;
+        else if(thisIndex === 5) return msg + "\n" + thisSeg.text + "\n"
+        else return msg + "."
     }, "")
 
     const audio = Array.from( ws.getDecodedData()?.getChannelData(0)! );
@@ -33,7 +50,7 @@ export async function runAndDisplay(targetSegs:TimedTextSegment[], audiofile:str
     }
 }
 
-function runOneAlgorithm(targetSegs:TimedTextSegment[], audioData:number[], duration:number, alg:decodingAlgorithm) : runResult{
+function runOneAlgorithm(targetSegs:TimedTextSegment[], audioData:number[], duration:number, alg:decodingAlgorithm) : decodeResult|pausesResult{
     const segs = targetSegs.map((seg) => {return{start:0,end:0,text:seg.text}});
 
     let pauseFinder = (typeof alg.findPauses !== "undefined");
@@ -41,23 +58,31 @@ function runOneAlgorithm(targetSegs:TimedTextSegment[], audioData:number[], dura
 
     let resultSegs:TimedTextSegment[] = [];
     if(decoder){
-        resultSegs = alg.decode!(segs, audioData, duration);
+        
     }
     if(pauseFinder){
+        
+    }
+
+    if(decoder && pauseFinder){
+        const pauses = alg.findPauses!(audioData, duration);
+        resultSegs = alg.decode!(segs, audioData, duration);
+        const correctSplits = evaluateSplits(resultSegs, targetSegs, pauses);
+        const numTotalSplits = segs.length-1;
+        return {segs:resultSegs, correct:correctSplits, outOf:numTotalSplits} as decodeResult;
+    }
+    else if(pauseFinder){
         resultSegs = alg.findPauses!(audioData, duration);
+        return evaluatePauses(resultSegs, targetSegs) as pausesResult;
     }
-
-    if(decoder){
-        const errors = errorsOnSegmentation(resultSegs, targetSegs);
-        const meanSquaredError = errors.reduce((acc, next) => next**2+acc) / errors.length;
-        const worstError = Math.max(...errors);
-        return {segs:resultSegs, mse:meanSquaredError, worstError:worstError}
+    else if(decoder){
+        resultSegs = alg.decode!(segs, audioData, duration);
+        return {segs:resultSegs, mse:evaluateSplits(resultSegs, targetSegs)} as decodeResult;
     }
-
-    return {segs:resultSegs, mse:0, worstError:0}    
+    return {segs:resultSegs};
 }
 
-function displayOneResult(algorithm:decodingAlgorithm, soundfile:string, result:runResult){
+function displayOneResult(algorithm:decodingAlgorithm, soundfile:string, result:decodeResult|pausesResult){
     const container = document.createElement("div");
     container.classList.add("sub-container");
     container.id = `${algorithm.name}-container`
@@ -74,19 +99,40 @@ function displayOneResult(algorithm:decodingAlgorithm, soundfile:string, result:
     wsDisplay.id = `${algorithm.name}-wavesurfer`
     container.appendChild(wsDisplay);
 
-    if(typeof algorithm.decode !== "undefined"){
+    if(typeof algorithm.decode !== "undefined" && typeof algorithm.findPauses !== "undefined"){
+        const dResult = result as decodeResult;
+
+        const accuracyDisplay = document.createElement("p");
+        accuracyDisplay.innerText = `Accuracy: ${dResult.correct}/${dResult.outOf} correct`;
+        accuracyDisplay.id = `${algorithm.name}-accuracy-display`;
+        container.appendChild(accuracyDisplay);
+
+        makeWaveSurfer(wsDisplay.id, soundfile, dResult.segs, false);
+    }
+    else if(typeof algorithm.decode !== "undefined"){
+        const dResult = result as decodeResult;
         const meanErrorDisplay = document.createElement("p");
-        meanErrorDisplay.innerText = `Mean squared error: ${result.mse}`;
+        meanErrorDisplay.innerText = `Mean squared error: ${dResult.mse}`;
         meanErrorDisplay.id = `${algorithm.name}-mean-error`
         container.appendChild(meanErrorDisplay);
 
-        const worstErrorDisplay = document.createElement("p");
-        worstErrorDisplay.innerText = `Greatest error: ${result.worstError}`;
-        worstErrorDisplay.id = `${algorithm.name}-worst-error`
-        container.appendChild(worstErrorDisplay);
+        makeWaveSurfer(wsDisplay.id, soundfile, dResult.segs, false);
     }
+    else{
+        const pResult = result as pausesResult;
 
-    makeWaveSurfer(wsDisplay.id, soundfile, result.segs, typeof algorithm.findPauses !== "undefined");
+        const numCorrectDisplay = document.createElement("p");
+        numCorrectDisplay.innerText = `Accuracy:\tCorrectly identified ${pResult.numCorrectIdentified}/${pResult.actualNumPauses}`;
+        numCorrectDisplay.id = `${algorithm.name}-correct-pauses`;
+        container.appendChild(numCorrectDisplay);
+                
+        const numPredictedDisplay = document.createElement("p");
+        numPredictedDisplay.innerText = `Precision:\tFound ${pResult.predictedNumPauses} pauses`;
+        numPredictedDisplay.id = `${algorithm.name}-pausesFound`;
+        container.appendChild(numPredictedDisplay);
+
+        makeWaveSurfer(wsDisplay.id, soundfile, pResult.pauses, true);
+    }
 
     container.appendChild(document.createElement("hr"));
 }

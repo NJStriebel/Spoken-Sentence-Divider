@@ -1,10 +1,10 @@
-import { getIsSpeech, pauseIntervals } from "../FindPauses";
+import { makeSpeechFinder } from "../utils/FindPauses";
 import type { TimedTextSegment } from "../utils/TimedTextSegment";
 
 //place the initial breaks by making the less-naive assumption that number of characters in a segment is proportional to its length WITHOUT PAUSES
-export function pauseAwareTextLength(initialSegments: TimedTextSegment[], audioData: number[], duration: number){
-    const pauseSegs: TimedTextSegment[] = pauseIntervals(audioData, duration);
-
+export function pauseAwareTextLength(initialSegments: TimedTextSegment[], audioData: number[], duration: number, kMeansIterations:number, k:number){
+    const getIsSpeech = makeSpeechFinder(kMeansIterations);
+    
     const isSpeech: boolean[] = getIsSpeech(audioData);
     const sampleDuration = duration / audioData.length; //seconds per segment
     let speechSamples = 0;

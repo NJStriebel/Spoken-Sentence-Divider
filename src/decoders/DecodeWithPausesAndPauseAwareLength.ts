@@ -1,58 +1,82 @@
-import { pauseIntervals } from "../FindPauses";
+import { makePauseFinder } from "../utils/FindPauses";
 import type { TimedTextSegment } from "../utils/TimedTextSegment";
+import { textLength } from "./DecodeWithTextLength";
 import { pauseAwareTextLength } from "./PauseAwareTextLength";
 
 //the idea of this algorithm is to map each sentence break and pause to a level of confidence that they match
 //we'll keep that mapping sorted by confidence level, then apply the matches in order of confidence level, skipping pauses that have already been assigned
-export function pausesAndPauseAwareLength(initialSegments: TimedTextSegment[], audioData: number[], duration: number){
-    let pauses = pauseIntervals(audioData, duration);
-    if(pauses[0].start == 0) pauses = pauses.slice(1, pauses.length);
-    if(pauses[pauses.length-1].end == duration) pauses = pauses.slice(0, pauses.length-1);
+export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, distanceFactor:number, distancePower:number, pauseWidthFactor:number, pauseWidthPower:number){
+    const confidence = makeConfidenceMetric(distanceFactor, distancePower, pauseWidthFactor, pauseWidthPower);
+    const pauseFinder = makePauseFinder(minPauseDuration, minGapPreDrop, minGapPostDrop, kMeansIterations, k).findPauses!;
+    
+    return {
+        name: `pauses-and-pause-aware-length: df-${distanceFactor} dp-${distancePower} pwf-${pauseWidthFactor} pwp-${pauseWidthPower}`,
+        decode: (initialSegments: TimedTextSegment[], audioData: number[], duration: number)=>{
+            let pauses = pauseFinder(audioData, duration);
+            try{
+                if(pauses[0].start == 0) pauses = pauses.slice(1, pauses.length);
+                if(pauses[pauses.length-1].end == duration) pauses = pauses.slice(0, pauses.length-1);
+            }
+            catch(error){
+                console.error("Too few pauses were found to make pause-based sentence break assignments.\nDefaulting to text length.")
+                return textLength(initialSegments, audioData, duration);
+            }
 
-    const textLengthBreaks = pauseAwareTextLength(initialSegments, audioData, duration);
+            //relies on getThreshold, which does not depend on min pause length or pause join parameters
+            const textLengthBreaks = pauseAwareTextLength(initialSegments, audioData, duration, kMeansIterations, k);
 
-    const pausePoints : number[] = pauses.map(pause=>{
-        return pause.start + (pause.end - pause.start )/2;
-    });
-    let splitPoints : number[] = textLengthBreaks.map(split=>split.end);
-    splitPoints = splitPoints.slice(0, -1);
+            if(pauses.length < textLengthBreaks.length){
+                console.error("found fewer pauses than needed to assign one to each phrase break");
+            }
 
-    const confidenceTable :orderedConfidenceList = new orderedConfidenceList();
-    const adjustedSplits : confidenceNode[] = [];
-
-    for(let i = 0; i < pausePoints.length; i++){
-        for(let j = 0; j < splitPoints.length; j++){
-            //if needed, add a guard of some kind to stop us from comparing every single pause to every single split
-            //addNode is a linear time operation, so we want to limit the size of confidence Table ( right now we're O(n^3) )
-            confidenceTable.addNode({
-                pauseIndex:i,
-                splitIndex:j,
-                confidence: confidenceMetric(pauses[i],textLengthBreaks[j])
+            const pausePoints : number[] = pauses.map((pause:TimedTextSegment)=>{
+                return pause.start + (pause.end - pause.start )/2;
             });
+            let splitPoints : number[] = textLengthBreaks.map(split=>split.end);
+            splitPoints = splitPoints.slice(0, -1);
+
+            const confidenceTable :orderedConfidenceList = new orderedConfidenceList();
+            const adjustedSplits : confidenceNode[] = [];
+
+            for(let i = 0; i < pausePoints.length; i++){
+                for(let j = 0; j < splitPoints.length; j++){
+                    //if needed, add a guard of some kind to stop us from comparing every single pause to every single split
+                    //addNode is a linear time operation, so we want to limit the size of confidence Table ( right now we're O(n^3) )
+                    confidenceTable.addNode({
+                        pauseIndex:i,
+                        splitIndex:j,
+                        confidence: confidence(pauses[i],textLengthBreaks[j])
+                    });
+                }
+            }
+
+            //assign splits to pauses in order of confidence
+            for(let i = 0; i < splitPoints.length; i++){
+                adjustedSplits.push(confidenceTable.pop())
+            }
+
+            for(const aSplit of adjustedSplits){
+                const thisPause = pauses[aSplit.pauseIndex];
+
+                const pauseCenter = thisPause.start + (thisPause.end - thisPause.start)/2;
+
+                textLengthBreaks[aSplit.splitIndex].end = pauseCenter;
+                textLengthBreaks[aSplit.splitIndex + 1].start = pauseCenter;
+            }
+
+            return textLengthBreaks;
         }
     }
-
-    for(let i = 0; i < splitPoints.length; i++){
-        adjustedSplits.push(confidenceTable.pop())
-    }
-
-    for(const aSplit of adjustedSplits){
-        const thisPause = pauses[aSplit.pauseIndex];
-        const pauseCenter = thisPause.start + (thisPause.end - thisPause.start)/2;
-
-        textLengthBreaks[aSplit.splitIndex].end = pauseCenter;
-        textLengthBreaks[aSplit.splitIndex + 1].start = pauseCenter;
-    }
-
-    return textLengthBreaks;
 }
 
 //to begin with, we'll use the width of the pause minus the square of the distance between pause and split
-function confidenceMetric(pause:TimedTextSegment, split:TimedTextSegment):number{
-    const splitPoint = split.end;
-    const pausePoint = pause.start + (pause.end-pause.start)/2
+function makeConfidenceMetric(distanceFactor:number, distancePower:number, pauseWidthFactor:number, pauseWidthPower:number):Function{
+    return (pause:TimedTextSegment, split:TimedTextSegment)=>{
+        const splitPoint = split.end;
+        const pausePoint = pause.start + (pause.end-pause.start)/2
 
-    return (pause.end - pause.start)*5 - (pausePoint-splitPoint)**2;
+        return pauseWidthFactor*(pause.end - pause.start)**pauseWidthPower + distanceFactor*(pausePoint-splitPoint)**distancePower;
+    }
 }
 
 class orderedConfidenceList{

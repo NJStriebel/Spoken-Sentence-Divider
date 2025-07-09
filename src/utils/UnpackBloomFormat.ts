@@ -5,12 +5,12 @@ const HTM_FIELD_NAME = "data-audiorecordingendtimes";
 //the same line will have an id property, which is the name of the audio file, minus the ".mp3"
 //after that, the sentences/phrases will be the next n innerText attributes
 
-type parsingProblem = {
+export type parsingProblem = {
     audioFileName:string,
     targetSegments:TimedTextSegment[]
 }
 
-export async function getProblemFromFiles(htmPath:string) : Promise<parsingProblem[]> {
+export async function getProblemFromBloom(htmPath:string) : Promise<parsingProblem[]> {
     const htmFileResponse = await fetch(htmPath);
     const htmFileContent = await htmFileResponse.text();
 
@@ -22,7 +22,7 @@ export async function getProblemFromFiles(htmPath:string) : Promise<parsingProbl
     const problems = [];
 
     for(const pageTextCont of pageTextContainer){
-        const afp = `${pageTextCont.id}.mp3`;
+        const afp = `${htmPath.slice(0, htmPath.length-4)}-audio/${pageTextCont.id}.mp3`;
 
         const endTimesString = pageTextCont.getAttribute(HTM_FIELD_NAME);
         const endTimes = endTimesString?.split(" ").map(parseFloat)!;

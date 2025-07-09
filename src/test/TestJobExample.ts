@@ -3,9 +3,9 @@ import { textLength } from "../decoders/DecodeWithTextLength";
 import type {decodingAlgorithm} from "../utils/ProcessExample.ts";
 import {runAndDisplay} from "../utils/ProcessExample.ts";
 import type { TimedTextSegment } from "../utils/TimedTextSegment";
-import { pauseIntervals } from "../FindPauses.ts";
+import { makePauseFinder, pauseIntervals } from "../utils/FindPauses.ts";
 import { pauseAwareTextLength } from "../decoders/PauseAwareTextLength.ts";
-import { pausesAndPauseAwareLength } from "../decoders/DecodeWithPausesAndPauseAwareLength.ts";
+import { makePausesAndPauseAwareLength } from "../decoders/DecodeWithPausesAndPauseAwareLength.ts";
 
 const target = [
     {start:0, end:11.75, text: "Oh that you would hide me in Sheol, that you would conceal me until your wrath be past, that you would appoint me a set time, and remember me!"},
@@ -17,12 +17,14 @@ const target = [
 
 const file = "../../data/Job14.m4a";
 
+const pauseFinder = makePauseFinder(0.001, 0.2, 5).findPauses;
+
 const algorithms = [
     {name:"text-length", decode:textLength},
     {name:"pause-aware-text-length", decode:pauseAwareTextLength},
-    {name:"highlight-pauses", findPauses:pauseIntervals} as decodingAlgorithm,    
-    {name:"pauses-and-pause-aware-text-length", decode:pausesAndPauseAwareLength, highlightPauses:false} as decodingAlgorithm,
-    {name:"quietest-nearby", decode:(is:TimedTextSegment[], ad:number[], d:number)=>quietestNearby(textLength(is, ad, d), ad, d), highlightPauses:false} as decodingAlgorithm
+    {name:"highlight-pauses", findPauses:pauseFinder} as decodingAlgorithm,    
+    {name:"pauses-and-pause-aware-text-length", decode:makePausesAndPauseAwareLength(pauseFinder!, -1,2,3,1).decode!, findPauses:pauseFinder, highlightPauses:false} as decodingAlgorithm,
+    {name:"quietest-nearby", decode:(is:TimedTextSegment[], ad:number[], d:number)=>quietestNearby(textLength(is, ad, d), ad, d), findPauses:pauseFinder, highlightPauses:false} as decodingAlgorithm
 ]
 
 runAndDisplay(target, file, algorithms);

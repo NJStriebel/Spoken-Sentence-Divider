@@ -1,4 +1,4 @@
-import { pauseIntervals } from "../FindPauses";
+import { pauseIntervals } from "../utils/FindPauses";
 import type { TimedTextSegment } from "../utils/TimedTextSegment";
 import { textLength } from "./DecodeWithTextLength";
 
