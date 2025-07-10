@@ -1,0 +1,1336 @@
+<TEXT xml:lang="lag" id="crdo-LAG_HYENA">
+<HEADER>
+<TITLE xml:lang="en">The Hyena and the Hare</TITLE>
+<SOUNDFILE href="Tanzanie/Langi/HYENA.mp3"/>
+</HEADER>
+<S id="HYENAs1">
+<W>
+<FORM kindOf="phono">ahɔ</FORM>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">dp16</TRANSL>
+<TRANSL xml:lang="fr">pd16</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">hɔ</FORM>
+<TRANSL xml:lang="en">ref16</TRANSL>
+<TRANSL xml:lang="fr">réf16</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">kalɛ</FORM>
+<M>
+<FORM kindOf="phono">Ø</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kalɛ</FORM>
+<TRANSL xml:lang="en">olden.times</TRANSL>
+<TRANSL xml:lang="fr">autrefois</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Il était une fois,</TRANSL>
+<TRANSL xml:lang="en">Once upon a time,</TRANSL>
+<AUDIO start="4.9256" end="6.4536"/>
+</S>
+<S id="HYENAs2">
+<W>
+<FORM kindOf="phono">na</FORM>
+<M>
+<FORM kindOf="phono">na</FORM>
+<TRANSL xml:lang="en">conn</TRANSL>
+<TRANSL xml:lang="fr">conn</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">kɪlaŋgi</FORM>
+<M>
+<FORM kindOf="phono">kɪ</FORM>
+<TRANSL xml:lang="en">np7</TRANSL>
+<TRANSL xml:lang="fr">pn7</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">laŋgi</FORM>
+<TRANSL xml:lang="en">Langi</TRANSL>
+<TRANSL xml:lang="fr">langi</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">(en kilangi)</TRANSL>
+<TRANSL xml:lang="en">(in Kilangi)</TRANSL>
+<AUDIO start="6.4536" end="7.8609"/>
+</S>
+<S id="HYENAs3">
+<W>
+<FORM kindOf="phono">kʊʊdʒa</FORM>
+<M>
+<FORM kindOf="phono">kʊ</FORM>
+<TRANSL xml:lang="en">vp17</TRANSL>
+<TRANSL xml:lang="fr">pv17</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">idʒ</FORM>
+<TRANSL xml:lang="en">aux</TRANSL>
+<TRANSL xml:lang="fr">aux</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">kɔɔtɛtɛ</FORM>
+<M>
+<FORM kindOf="phono">kʊ</FORM>
+<TRANSL xml:lang="en">vp17</TRANSL>
+<TRANSL xml:lang="fr">pv17</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">acc</TRANSL>
+<TRANSL xml:lang="fr">acc</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tɛt</FORM>
+<TRANSL xml:lang="en">have</TRANSL>
+<TRANSL xml:lang="fr">avoir</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">irɛ</FORM>
+<TRANSL xml:lang="en">perf</TRANSL>
+<TRANSL xml:lang="fr">perf</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ntʃʊŋkʊla</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tʃʊŋgʊla</FORM>
+<TRANSL xml:lang="en">hare</TRANSL>
+<TRANSL xml:lang="fr">lièvre</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">na</FORM>
+<M>
+<FORM kindOf="phono">na</FORM>
+<TRANSL xml:lang="en">conn</TRANSL>
+<TRANSL xml:lang="fr">conn</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">mpitʃi</FORM>
+<M>
+<FORM kindOf="phono">m</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">pitʃi</FORM>
+<TRANSL xml:lang="en">hyena</TRANSL>
+<TRANSL xml:lang="fr">hyène</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">il y avait un lièvre et une hyène.</TRANSL>
+<TRANSL xml:lang="en">there were a hare and a hyena.</TRANSL>
+<AUDIO start="8.1624" end="11.7612"/>
+</S>
+<S id="HYENAs4">
+<W>
+<FORM kindOf="phono">dʒikiikwata</FORM>
+<M>
+<FORM kindOf="phono">dʒi</FORM>
+<TRANSL xml:lang="en">vp10</TRANSL>
+<TRANSL xml:lang="fr">pv10</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">dist</TRANSL>
+<TRANSL xml:lang="fr">dist</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">i</FORM>
+<TRANSL xml:lang="en">rec</TRANSL>
+<TRANSL xml:lang="fr">rec</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kwat</FORM>
+<TRANSL xml:lang="en">touch</TRANSL>
+<TRANSL xml:lang="fr">toucher</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">marɛ</FORM>
+<M>
+<FORM kindOf="phono">Ø</FORM>
+<TRANSL xml:lang="en">np10</TRANSL>
+<TRANSL xml:lang="fr">pn10</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">marɛ</FORM>
+<TRANSL xml:lang="en">friend</TRANSL>
+<TRANSL xml:lang="fr">ami</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Ils étaient amis.</TRANSL>
+<TRANSL xml:lang="en">They were friends.</TRANSL>
+<AUDIO start="11.9019" end="14.0933"/>
+</S>
+<S id="HYENAs5">
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">haha</FORM>
+<M>
+<FORM kindOf="phono">ha</FORM>
+<TRANSL xml:lang="en">dp16</TRANSL>
+<TRANSL xml:lang="fr">pd16</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ha</FORM>
+<TRANSL xml:lang="en">dem.p</TRANSL>
+<TRANSL xml:lang="fr">dém.p</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪhɪ</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">dp9</TRANSL>
+<TRANSL xml:lang="fr">pd9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">hɪ</FORM>
+<TRANSL xml:lang="en">dem.p</TRANSL>
+<TRANSL xml:lang="fr">dém.p</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ntʃʊŋkʊla</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tʃʊŋgʊla</FORM>
+<TRANSL xml:lang="en">hare</TRANSL>
+<TRANSL xml:lang="fr">lièvre</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Puis, ce lièvre,</TRANSL>
+<TRANSL xml:lang="en">Then, that hare</TRANSL>
+<AUDIO start="14.1938" end="17.3905"/>
+</S>
+<S id="HYENAs6">
+<W>
+<FORM kindOf="phono">nɔ</FORM>
+<M>
+<FORM kindOf="phono">nɔ</FORM>
+<TRANSL xml:lang="en">rel</TRANSL>
+<TRANSL xml:lang="fr">rel</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">utʃiku</FORM>
+<M>
+<FORM kindOf="phono">u</FORM>
+<TRANSL xml:lang="en">np14</TRANSL>
+<TRANSL xml:lang="fr">pn14</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tʃiku</FORM>
+<TRANSL xml:lang="en">night</TRANSL>
+<TRANSL xml:lang="fr">nuit</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yɛɛndɔtɔrya</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ɛndɔ</FORM>
+<TRANSL xml:lang="en">want</TRANSL>
+<TRANSL xml:lang="fr">vouloir</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tɔ</FORM>
+<TRANSL xml:lang="en">take</TRANSL>
+<TRANSL xml:lang="fr">prendre</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ry</FORM>
+<TRANSL xml:lang="en">eat</TRANSL>
+<TRANSL xml:lang="fr">manger</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ndʒʊʊ</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">np10</TRANSL>
+<TRANSL xml:lang="fr">pn10</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">dʒʊʊ</FORM>
+<TRANSL xml:lang="en">bean</TRANSL>
+<TRANSL xml:lang="fr">haricot</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">la nuit, il va manger des haricots.</TRANSL>
+<TRANSL xml:lang="en">at night, he goes to eat beans.</TRANSL>
+<AUDIO start="17.3905" end="19.7427"/>
+</S>
+<S id="HYENAs7">
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ha</FORM>
+<M>
+<FORM kindOf="phono">ha</FORM>
+<TRANSL xml:lang="en">dp16</TRANSL>
+<TRANSL xml:lang="fr">pd16</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">mpitʃi</FORM>
+<M>
+<FORM kindOf="phono">m</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">pitʃi</FORM>
+<TRANSL xml:lang="en">hyena</TRANSL>
+<TRANSL xml:lang="fr">hyène</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yɛɛndɔkwatwa</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ɛndɔ</FORM>
+<TRANSL xml:lang="en">want</TRANSL>
+<TRANSL xml:lang="fr">vouloir</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kwat</FORM>
+<TRANSL xml:lang="en">touch</TRANSL>
+<TRANSL xml:lang="fr">toucher</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">u</FORM>
+<TRANSL xml:lang="en">pass</TRANSL>
+<TRANSL xml:lang="fr">pass</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">nɪ</FORM>
+<M>
+<FORM kindOf="phono">nɪ</FORM>
+<TRANSL xml:lang="en">cop</TRANSL>
+<TRANSL xml:lang="fr">cop</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yɔ</FORM>
+<M>
+<FORM kindOf="phono">yɔ</FORM>
+<TRANSL xml:lang="en">pers9</TRANSL>
+<TRANSL xml:lang="fr">pers9</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yɔɔrya</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ɔ</FORM>
+<TRANSL xml:lang="en">pres</TRANSL>
+<TRANSL xml:lang="fr">prés</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ry</FORM>
+<TRANSL xml:lang="en">eat</TRANSL>
+<TRANSL xml:lang="fr">manger</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ndʒʊʊ</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">np10</TRANSL>
+<TRANSL xml:lang="fr">pn10</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">dʒʊʊ</FORM>
+<TRANSL xml:lang="en">bean</TRANSL>
+<TRANSL xml:lang="fr">haricot</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Puis, là, l'hyène est attrapée, c'est elle qui mange les haricots.</TRANSL>
+<TRANSL xml:lang="en">Then, this time, the hyena is caught, he is the one who is eating the beans.</TRANSL>
+<AUDIO start="20.5268" end="24.7287"/>
+</S>
+<S id="HYENAs8">
+<W>
+<FORM kindOf="phono">kʊmbaa</FORM>
+<M>
+<FORM kindOf="phono">kʊ</FORM>
+<TRANSL xml:lang="en">np15</TRANSL>
+<TRANSL xml:lang="fr">pn15</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">N</FORM>
+<TRANSL xml:lang="en">obj1sg</TRANSL>
+<TRANSL xml:lang="fr">obj1sg</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">va</FORM>
+<TRANSL xml:lang="en">hit</TRANSL>
+<TRANSL xml:lang="fr">frapper</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<M>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<TRANSL xml:lang="en">neg</TRANSL>
+<TRANSL xml:lang="fr">nég</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ka</FORM>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">if</TRANSL>
+<TRANSL xml:lang="fr">si</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">nɪ</FORM>
+<M>
+<FORM kindOf="phono">nɪ</FORM>
+<TRANSL xml:lang="en">cop</TRANSL>
+<TRANSL xml:lang="fr">cop</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">nɔ</FORM>
+<M>
+<FORM kindOf="phono">nɔ</FORM>
+<TRANSL xml:lang="en">rel</TRANSL>
+<TRANSL xml:lang="fr">rel</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪra</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">dp9</TRANSL>
+<TRANSL xml:lang="fr">pd9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ra</FORM>
+<TRANSL xml:lang="en">dem</TRANSL>
+<TRANSL xml:lang="fr">dém</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ntʃʊŋkʊla</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tʃʊŋgʊla</FORM>
+<TRANSL xml:lang="en">hare</TRANSL>
+<TRANSL xml:lang="fr">lièvre</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">"Ne pas me frapper, si c'est ce lièvre.</TRANSL>
+<TRANSL xml:lang="en">"Do not hit me, if it is that hare.</TRANSL>
+<AUDIO start="25.6937" end="28.5285"/>
+</S>
+<S id="HYENAs9">
+<W>
+<FORM kindOf="phono">nɪ</FORM>
+<M>
+<FORM kindOf="phono">nɪ</FORM>
+<TRANSL xml:lang="en">cop</TRANSL>
+<TRANSL xml:lang="fr">cop</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ndʒandʒa</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">dp9</TRANSL>
+<TRANSL xml:lang="fr">pd9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">dʒandʒa</FORM>
+<TRANSL xml:lang="en">cunning</TRANSL>
+<TRANSL xml:lang="fr">rusé</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">sana</FORM>
+<M>
+<FORM kindOf="phono">sana</FORM>
+<TRANSL xml:lang="en">very</TRANSL>
+<TRANSL xml:lang="fr">très</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Il est très rusé.</TRANSL>
+<TRANSL xml:lang="en">He is very cunning.</TRANSL>
+<AUDIO start="28.5285" end="30.9008"/>
+</S>
+<S id="HYENAs10">
+<W>
+<FORM kindOf="phono">ɛɛ</FORM>
+<M>
+<FORM kindOf="phono">ɛɛ</FORM>
+<TRANSL xml:lang="en">yes</TRANSL>
+<TRANSL xml:lang="fr">oui</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yaakalahala</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">acc</TRANSL>
+<TRANSL xml:lang="fr">acc</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kalahal</FORM>
+<TRANSL xml:lang="en">clever</TRANSL>
+<TRANSL xml:lang="fr">rusé</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">munumunu</FORM>
+<M>
+<FORM kindOf="phono">munumunu</FORM>
+<TRANSL xml:lang="en">very</TRANSL>
+<TRANSL xml:lang="fr">très</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Oui, il est très très rusé."</TRANSL>
+<TRANSL xml:lang="en">Yes, he is very very clever."</TRANSL>
+<AUDIO start="32.3684" end="35.0222"/>
+</S>
+<S id="HYENAs11">
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">haha</FORM>
+<M>
+<FORM kindOf="phono">ha</FORM>
+<TRANSL xml:lang="en">dp16</TRANSL>
+<TRANSL xml:lang="fr">pd16</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ha</FORM>
+<TRANSL xml:lang="en">dem.p</TRANSL>
+<TRANSL xml:lang="fr">dém.p</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">mpitʃi</FORM>
+<M>
+<FORM kindOf="phono">m</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">pitʃi</FORM>
+<TRANSL xml:lang="en">hyena</TRANSL>
+<TRANSL xml:lang="fr">hyène</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">dɛ</FORM>
+<M>
+<FORM kindOf="phono">dɛ</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪkakwatwa</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">dist</TRANSL>
+<TRANSL xml:lang="fr">dist</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kwat</FORM>
+<TRANSL xml:lang="en">touch</TRANSL>
+<TRANSL xml:lang="fr">toucher</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">u</FORM>
+<TRANSL xml:lang="en">pass</TRANSL>
+<TRANSL xml:lang="fr">pass</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Puis, à ce moment-là, l'hyène, elle était attrapée.</TRANSL>
+<TRANSL xml:lang="en">Then, at that point, the hyena, then he was caught.</TRANSL>
+<AUDIO start="35.0222" end="37.5353"/>
+</S>
+<S id="HYENAs12">
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yɛɛndɔvawa</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ɛndɔ</FORM>
+<TRANSL xml:lang="en">want</TRANSL>
+<TRANSL xml:lang="fr">vouloir</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">va</FORM>
+<TRANSL xml:lang="en">hit</TRANSL>
+<TRANSL xml:lang="fr">frapper</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">u</FORM>
+<TRANSL xml:lang="en">pass</TRANSL>
+<TRANSL xml:lang="fr">pass</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Puis, elle allait être frappée.</TRANSL>
+<TRANSL xml:lang="en">Then, he was going to be beaten.</TRANSL>
+<AUDIO start="37.6157" end="39.4050"/>
+</S>
+<S id="HYENAs13">
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪkasɛya</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">dist</TRANSL>
+<TRANSL xml:lang="fr">dist</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">sɛy</FORM>
+<TRANSL xml:lang="en">say</TRANSL>
+<TRANSL xml:lang="fr">dire</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">si</FORM>
+<M>
+<FORM kindOf="phono">si</FORM>
+<TRANSL xml:lang="en">neg</TRANSL>
+<TRANSL xml:lang="fr">nég</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ndɛrɪ</FORM>
+<M>
+<FORM kindOf="phono">ndɛ</FORM>
+<TRANSL xml:lang="en">1sg</TRANSL>
+<TRANSL xml:lang="fr">1sg</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">rɪ</FORM>
+<TRANSL xml:lang="en">cop</TRANSL>
+<TRANSL xml:lang="fr">cop</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">nɪnɪ</FORM>
+<M>
+<FORM kindOf="phono">nɪnɪ</FORM>
+<TRANSL xml:lang="en">pers1sg</TRANSL>
+<TRANSL xml:lang="fr">pers1sg</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<M>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<TRANSL xml:lang="en">neg</TRANSL>
+<TRANSL xml:lang="fr">nég</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">nɪ</FORM>
+<M>
+<FORM kindOf="phono">nɪ</FORM>
+<TRANSL xml:lang="en">cop</TRANSL>
+<TRANSL xml:lang="fr">cop</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ntʃʊŋkʊla</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tʃʊŋgʊla</FORM>
+<TRANSL xml:lang="en">hare</TRANSL>
+<TRANSL xml:lang="fr">lièvre</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Puis elle a dit "Ce n'est pas moi ! C'est le lièvre !"</TRANSL>
+<TRANSL xml:lang="en">Then he said: "It isn't me! It's the hare!"</TRANSL>
+<AUDIO start="39.6060" end="42.7424"/>
+</S>
+<S id="HYENAs14">
+<W>
+<FORM kindOf="phono">ɪyɔ</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">dp9</TRANSL>
+<TRANSL xml:lang="fr">pd9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">yɔ</FORM>
+<TRANSL xml:lang="en">ref9</TRANSL>
+<TRANSL xml:lang="fr">réf9</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">siku</FORM>
+<M>
+<FORM kindOf="phono">Ø</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">siku</FORM>
+<TRANSL xml:lang="en">day</TRANSL>
+<TRANSL xml:lang="fr">jour</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ntʃʊŋkʊla</FORM>
+<M>
+<FORM kindOf="phono">n</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tʃʊŋgʊla</FORM>
+<TRANSL xml:lang="en">hare</TRANSL>
+<TRANSL xml:lang="fr">lièvre</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">nɔ</FORM>
+<M>
+<FORM kindOf="phono">nɔ</FORM>
+<TRANSL xml:lang="en">rel</TRANSL>
+<TRANSL xml:lang="fr">rel</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪkakwatwa</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">dist</TRANSL>
+<TRANSL xml:lang="fr">dist</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kwat</FORM>
+<TRANSL xml:lang="en">touch</TRANSL>
+<TRANSL xml:lang="fr">toucher</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">u</FORM>
+<TRANSL xml:lang="en">pass</TRANSL>
+<TRANSL xml:lang="fr">pass</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Ce jour-là, le lièvre, il s'est fait attraper.</TRANSL>
+<TRANSL xml:lang="en">That day, the hare, then he was caught.</TRANSL>
+<AUDIO start="42.8027" end="46.1401"/>
+</S>
+<S id="HYENAs15">
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">nɔ</FORM>
+<M>
+<FORM kindOf="phono">nɔ</FORM>
+<TRANSL xml:lang="en">rel</TRANSL>
+<TRANSL xml:lang="fr">rel</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪkasɛya</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">dist</TRANSL>
+<TRANSL xml:lang="fr">dist</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">sɛy</FORM>
+<TRANSL xml:lang="en">say</TRANSL>
+<TRANSL xml:lang="fr">dire</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Puis il a dit :</TRANSL>
+<TRANSL xml:lang="en">Then he said:</TRANSL>
+<AUDIO start="46.3210" end="49.1759"/>
+</S>
+<S id="HYENAs16">
+<W>
+<FORM kindOf="phono">kʊmbaa</FORM>
+<M>
+<FORM kindOf="phono">kʊ</FORM>
+<TRANSL xml:lang="en">np15</TRANSL>
+<TRANSL xml:lang="fr">pn15</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">N</FORM>
+<TRANSL xml:lang="en">obj1sg</TRANSL>
+<TRANSL xml:lang="fr">obj1sg</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">va</FORM>
+<TRANSL xml:lang="en">hit</TRANSL>
+<TRANSL xml:lang="fr">frapper</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">na</FORM>
+<M>
+<FORM kindOf="phono">na</FORM>
+<TRANSL xml:lang="en">conn</TRANSL>
+<TRANSL xml:lang="fr">conn</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ŋkɔmɛ</FORM>
+<M>
+<FORM kindOf="phono">ŋ</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kɔmɛ</FORM>
+<TRANSL xml:lang="en">stick</TRANSL>
+<TRANSL xml:lang="fr">bâton</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<M>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<TRANSL xml:lang="en">neg</TRANSL>
+<TRANSL xml:lang="fr">nég</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">"Ne pas me frapper avec un bâton.</TRANSL>
+<TRANSL xml:lang="en">"Do not hit me with a stick.</TRANSL>
+<AUDIO start="49.1759" end="51.6085"/>
+</S>
+<S id="HYENAs17">
+<W>
+<FORM kindOf="phono">mʊmbaɛ</FORM>
+<M>
+<FORM kindOf="phono">mʊ</FORM>
+<TRANSL xml:lang="en">vp2pl</TRANSL>
+<TRANSL xml:lang="fr">pv2pl</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">N</FORM>
+<TRANSL xml:lang="en">obj1sg</TRANSL>
+<TRANSL xml:lang="fr">obj1sg</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">va</FORM>
+<TRANSL xml:lang="en">hit</TRANSL>
+<TRANSL xml:lang="fr">frapper</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ɛ</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">isarii</FORM>
+<M>
+<FORM kindOf="phono">i</FORM>
+<TRANSL xml:lang="en">np5</TRANSL>
+<TRANSL xml:lang="fr">pn5</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">salʊ</FORM>
+<TRANSL xml:lang="en">sand</TRANSL>
+<TRANSL xml:lang="fr">sable</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">i</FORM>
+<TRANSL xml:lang="en">loc</TRANSL>
+<TRANSL xml:lang="fr">loc</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Frappez-moi sur le sable.</TRANSL>
+<TRANSL xml:lang="en">Hit me on the sand.</TRANSL>
+<AUDIO start="51.7693" end="54.6242"/>
+</S>
+<S id="HYENAs18">
+<W>
+<FORM kindOf="phono">nɔ</FORM>
+<M>
+<FORM kindOf="phono">nɔ</FORM>
+<TRANSL xml:lang="en">rel</TRANSL>
+<TRANSL xml:lang="fr">rel</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɲama</FORM>
+<M>
+<FORM kindOf="phono">ɲ</FORM>
+<TRANSL xml:lang="en">vp10</TRANSL>
+<TRANSL xml:lang="fr">pv10</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ama</FORM>
+<TRANSL xml:lang="en">meat</TRANSL>
+<TRANSL xml:lang="fr">viande</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">dʒirɔva</FORM>
+<M>
+<FORM kindOf="phono">dʒi</FORM>
+<TRANSL xml:lang="en">vp10</TRANSL>
+<TRANSL xml:lang="fr">pv10</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">rɔ</FORM>
+<TRANSL xml:lang="en">?</TRANSL>
+<TRANSL xml:lang="fr">?</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">v</FORM>
+<TRANSL xml:lang="en">become</TRANSL>
+<TRANSL xml:lang="fr">devenir</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">katʃakatʃa</FORM>
+<M>
+<FORM kindOf="phono">katʃakatʃa</FORM>
+<TRANSL xml:lang="en">tough</TRANSL>
+<TRANSL xml:lang="fr">dur</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Sinon la viande sera dure."</TRANSL>
+<TRANSL xml:lang="en">Or the meat will be tough."</TRANSL>
+<AUDIO start="54.6242" end="56.7553"/>
+</S>
+<S id="HYENAs19">
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪkavaiwɛ</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">dist</TRANSL>
+<TRANSL xml:lang="fr">dist</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">va</FORM>
+<TRANSL xml:lang="en">hit</TRANSL>
+<TRANSL xml:lang="fr">frapper</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">u</FORM>
+<TRANSL xml:lang="en">pass</TRANSL>
+<TRANSL xml:lang="fr">pass</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">irɛ</FORM>
+<TRANSL xml:lang="en">perf</TRANSL>
+<TRANSL xml:lang="fr">perf</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">isarii</FORM>
+<M>
+<FORM kindOf="phono">i</FORM>
+<TRANSL xml:lang="en">np5</TRANSL>
+<TRANSL xml:lang="fr">pn5</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">salʊ</FORM>
+<TRANSL xml:lang="en">sand</TRANSL>
+<TRANSL xml:lang="fr">sable</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">i</FORM>
+<TRANSL xml:lang="en">loc</TRANSL>
+<TRANSL xml:lang="fr">loc</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ma</FORM>
+<M>
+<FORM kindOf="phono">ma</FORM>
+<TRANSL xml:lang="en">then</TRANSL>
+<TRANSL xml:lang="fr">puis</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪkatɪɪdʒa</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ka</FORM>
+<TRANSL xml:lang="en">dist</TRANSL>
+<TRANSL xml:lang="fr">dist</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">tɪɪdʒ</FORM>
+<TRANSL xml:lang="en">run</TRANSL>
+<TRANSL xml:lang="fr">courir</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Puis il a été frappé sur le sable et il est partit en courant.</TRANSL>
+<TRANSL xml:lang="en">Then he was hit on the sand and he ran off.</TRANSL>
+<AUDIO start="56.9965" end="60.4344"/>
+</S>
+<S id="HYENAs20">
+<W>
+<FORM kindOf="phono">kɔmana</FORM>
+<M>
+<FORM kindOf="phono">kɔmana</FORM>
+<TRANSL xml:lang="en">?</TRANSL>
+<TRANSL xml:lang="fr">?</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪhɪ</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">dp9</TRANSL>
+<TRANSL xml:lang="fr">pd9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">hɪ</FORM>
+<TRANSL xml:lang="en">dem.p</TRANSL>
+<TRANSL xml:lang="fr">dém.p</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yɔwɛvidʒaa</FORM>
+<M>
+<FORM kindOf="phono">yɔwɛvidʒaa</FORM>
+<TRANSL xml:lang="en">?</TRANSL>
+<TRANSL xml:lang="fr">?</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">yaakalahala</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">acc</TRANSL>
+<TRANSL xml:lang="fr">acc</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">kalahal</FORM>
+<TRANSL xml:lang="en">clever</TRANSL>
+<TRANSL xml:lang="fr">rusé</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">sfx</TRANSL>
+<TRANSL xml:lang="fr">sfx</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">munumunu</FORM>
+<M>
+<FORM kindOf="phono">munumunu</FORM>
+<TRANSL xml:lang="en">very</TRANSL>
+<TRANSL xml:lang="fr">très</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">Il est très très rusé.</TRANSL>
+<TRANSL xml:lang="en">He is very very clever.</TRANSL>
+<AUDIO start="65.8023" end="70.0645"/>
+</S>
+<S id="HYENAs21">
+<W>
+<FORM kindOf="phono">mpitʃi</FORM>
+<M>
+<FORM kindOf="phono">m</FORM>
+<TRANSL xml:lang="en">np9</TRANSL>
+<TRANSL xml:lang="fr">pn9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ptiʃi</FORM>
+<TRANSL xml:lang="en">hyena</TRANSL>
+<TRANSL xml:lang="fr">hyène</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">ɪsi</FORM>
+<M>
+<FORM kindOf="phono">ɪ</FORM>
+<TRANSL xml:lang="en">vp9</TRANSL>
+<TRANSL xml:lang="fr">pv9</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">si</FORM>
+<TRANSL xml:lang="en">neg.cop</TRANSL>
+<TRANSL xml:lang="fr">nég.cop</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">na</FORM>
+<M>
+<FORM kindOf="phono">na</FORM>
+<TRANSL xml:lang="en">conn</TRANSL>
+<TRANSL xml:lang="fr">conn</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">mʊryɔɔŋgɔ</FORM>
+<M>
+<FORM kindOf="phono">mʊ</FORM>
+<TRANSL xml:lang="en">np3</TRANSL>
+<TRANSL xml:lang="fr">pn3</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ryɔɔŋgɔ</FORM>
+<TRANSL xml:lang="en">brain</TRANSL>
+<TRANSL xml:lang="fr">cerveau</TRANSL>
+</M>
+</W>
+<W>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<M>
+<FORM kindOf="phono">tʊkʊ</FORM>
+<TRANSL xml:lang="en">neg</TRANSL>
+<TRANSL xml:lang="fr">nég</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">L'hyène n'a pas de cerveau.</TRANSL>
+<TRANSL xml:lang="en">The hyena has no brains.</TRANSL>
+<AUDIO start="70.0212" end="73.7405"/>
+</S>
+<S id="HYENAs22">
+<W>
+<FORM kindOf="phono">naahʊmwɛɛrɛ</FORM>
+<M>
+<FORM kindOf="phono">nɪ</FORM>
+<TRANSL xml:lang="en">pv1sg</TRANSL>
+<TRANSL xml:lang="fr">pv1sg</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">a</FORM>
+<TRANSL xml:lang="en">acc</TRANSL>
+<TRANSL xml:lang="fr">acc</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">hʊm</FORM>
+<TRANSL xml:lang="en">be.ready</TRANSL>
+<TRANSL xml:lang="fr">être.prêt</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">ʊl</FORM>
+<TRANSL xml:lang="en">rev</TRANSL>
+<TRANSL xml:lang="fr">rév</TRANSL>
+</M>
+<M>
+<FORM kindOf="phono">irɛ</FORM>
+<TRANSL xml:lang="en">perf</TRANSL>
+<TRANSL xml:lang="fr">perf</TRANSL>
+</M>
+</W>
+<TRANSL xml:lang="fr">J'ai terminé.</TRANSL>
+<TRANSL xml:lang="en">I have finished.</TRANSL>
+<AUDIO start="77.3192" end="78.7466"/>
+</S>
+</TEXT>

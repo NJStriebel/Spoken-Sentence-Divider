@@ -56,7 +56,7 @@ function clusterWithKmeans(audioData:number[], k:number, clusteringIterations:nu
     //evenly distribute our starting centroid guesses throughout a random sample
     let centroids : number[] = [];
     for(let i = 0; i < k; i++){
-        centroids.push(sampleMin + (i/k)*(sampleMax-sampleMin))
+        centroids.push(sampleMin + ((i+1)/k)*(sampleMax-sampleMin))
     }
 
     let clusters : number[][] = [];
@@ -93,6 +93,38 @@ function clusterWithKmeans(audioData:number[], k:number, clusteringIterations:nu
     return clusters.map((cluster, i)=>{
         return new GMMcluster(centroids[i], stdDevs[i], 1/k, cluster.map(val=>{return{value:val, responsibility:1}}))
     })
+}
+
+function clusterWithKmeansAdjustToPeak(audioData:number[], k:number, clusteringIterations:number, numBins=100, moveLimit=5):GMMcluster[]{
+    const powerClusters = clusterWithKmeans(audioData, k, clusteringIterations);
+    const powers = audioData.map((amp)=>{return Math.log10(amp+0.000000000001)})
+
+    let min :number = 1;
+    let max :number = -100;
+
+    for(const amp of powers){
+        if(amp > max) max = amp;
+        if(amp < min) min = amp;
+    }
+
+    const bins = binData(powers, min, max, numBins);
+
+    for(const cluster of powerClusters){
+        const centroidBinI = Math.floor(numBins * (cluster.centroid-min)/(max-min))
+        let nearbyMaxI = -1;
+        let nearbyMaxCount = 0;
+
+        for(let i = centroidBinI - moveLimit; i < centroidBinI+moveLimit ; i++){
+            if(bins[i] > nearbyMaxCount){
+                nearbyMaxCount = bins[i];
+                nearbyMaxI = i;
+            }
+        }
+
+        cluster.centroid = min + nearbyMaxI * (max-min) / numBins;
+    }
+
+    return powerClusters;
 }
 
 //Practically every audio file has a ton of samples that are practically zero. If we ignore those, our K-means might do a better job of finding the binormal distribution
@@ -181,27 +213,33 @@ type clusterResults = {
     speechCluster:GMMcluster
 }
 
+function binData(values:number[], min:number, max:number, numBins:number):number[]{
+    const bins:number[] = new Array(numBins).fill(0);
+
+    for(const amp of values){
+        const binIndex = Math.floor(numBins * (amp-min)/(max-min))
+        if(binIndex < numBins && binIndex >=0){
+            bins[binIndex]+=1;
+        }
+    }
+
+    return bins;
+}
+
 function printHistogramToProveBimodalness(amplitudes:number[], numBins:number){
     const powers = amplitudes.map((amp)=>{return Math.log10(amp+0.000000000001)})
     
     let min :number = 1;
     let max :number = 0.0000000000000000000001;
 
-    const bins:number[] = new Array(numBins).fill(0);
-
     for(const amp of powers){
         if(amp > max) max = amp;
         if(amp < min) min = amp;
     }
 
-    console.log(`min power: ${min}\nmax power:${max}`)
+    console.log(`min power: ${min}\nmax power: ${max}`);
 
-    for(const amp of powers){
-        const binIndex = Math.floor(numBins * (amp-min)/(max-min))
-        if(binIndex < numBins && binIndex >=0){
-            bins[binIndex]+=1;
-        }
-    }
+    const bins = binData(powers, min, max, numBins);    
 
     const maxBinSize = Math.max(...bins);
     let histogram:string = ""
@@ -219,24 +257,17 @@ function printHistogramWithMarkers(amplitudes:number[], numBins:number, markerAm
     const powers = amplitudes.map((amp)=>{return Math.log10(amp+0.000000000001)});
     const markerPowers = markerAmps.map(amp=>Math.log10(amp+0.000000000001));
     
-    let min :number = 1;
-    let max :number = 0.0000000000000000000001;
-
-    const bins:number[] = new Array(numBins).fill(0);
+    let min :number = Infinity;
+    let max :number = -Infinity;
 
     for(const amp of powers){
         if(amp > max) max = amp;
         if(amp < min) min = amp;
     }
 
-    console.log(`min power: ${min}\nmax power:${max}`)
+    console.log(`min power: ${min}\nmax power: ${max}`);
 
-    for(const amp of powers){
-        const binIndex = Math.floor(numBins * (amp-min)/(max-min))
-        if(binIndex < numBins && binIndex >=0){
-            bins[binIndex]+=1;
-        }
-    }
+    const bins = binData(powers, min, max, numBins);
 
     const markerIs = markerPowers.map(mp=>Math.floor(numBins * (mp-min)/(max-min)));
 
@@ -301,7 +332,7 @@ function getThreshold(audioData:number[], iterations:number, k:number, fractionO
     if(speechThreshold === undefined){
         if(k<2) k=2;
         // console.log("calculating threshold")
-        const powerClusters = clusterWithKmeans(audioData, k, iterations);
+        const powerClusters = clusterWithKmeansAdjustToPeak(audioData, k, iterations);
         powerClusters.sort((a,b)=>b.centroid-a.centroid);
 
         //cluster 1 is speech, cluster 0 is background noise
@@ -315,11 +346,12 @@ function getThreshold(audioData:number[], iterations:number, k:number, fractionO
 
         speechThreshold = 10**powerThreshold;
         // console.log(`Threshold found at ${speechThreshold}\ncentroids are ${10**powerClusters[0].centroid} and ${10**powerClusters[1].centroid}`)
-        //printHistogramWithMarkers(audioData, 100, [speechThreshold, 10**powerClusters[0].centroid, 10**powerClusters[1].centroid]);
+        printHistogramWithMarkers(audioData, 100, [speechThreshold, 10**powerClusters[0].centroid, 10**powerClusters[1].centroid]);
     }
     else{
         // console.log(`returning pre-computed Threshold: ${speechThreshold}`)
     }
+    
     return speechThreshold;
 }
 

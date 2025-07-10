@@ -1,0 +1,877 @@
+<TEXT id="crdo-NBC_MERMAID" xml:lang="nbc">
+<HEADER>
+<TITLE xml:lang="en">The mermaid</TITLE>
+<SOUNDFILE href="mermaid.wav"/>
+</HEADER>
+<S id="MERMAIDs1">
+<AUDIO start="0.0000" end="1.5053"/>
+<FORM kindOf="phono">tótɕí-á sɤ́ŋjú</FORM>
+<TRANSL xml:lang="en">Once upon a time, in a village</TRANSL>
+<W>
+<FORM kindOf="phono">tótɕí-á</FORM>
+<TRANSL xml:lang="en">once-Loc</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">sɤ́ŋjú-á</FORM>
+<TRANSL xml:lang="en">village-Loc</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs2">
+<AUDIO start="1.4739" end="4.2963"/>
+<FORM kindOf="phono">sɤ́ŋjú tɕɤ́nè sɤ́ŋjú-kà-pɯ̀ pówmɤ́t tɕè</FORM>
+<W>
+<FORM kindOf="phono">sɤ́ŋjú</FORM>
+<TRANSL xml:lang="en">village</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕɤ́nè</FORM>
+<TRANSL xml:lang="en">there</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">sɤ́ŋjú-kà-pɯ̀</FORM>
+<TRANSL xml:lang="en">village-Abl-Gen</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">pówmɤ́t</FORM>
+<TRANSL xml:lang="en">man</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕè</FORM>
+<TRANSL xml:lang="en">one</TRANSL>
+</W>
+<TRANSL xml:lang="en">A man from that village</TRANSL>
+</S>
+<S id="MERMAIDs3">
+<AUDIO start="4.2963" end="6.5229"/>
+<FORM kindOf="phono">ŋàw láp-lá hów-kɛ̀i làw-tâ kàwwɤ́n tɕê-tò</FORM>
+<TRANSL xml:lang="en">It is said that he went to a place for fishing.</TRANSL>
+<W>
+<FORM kindOf="phono">ŋàw</FORM>
+<TRANSL xml:lang="en">fish</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">láp-lá</FORM>
+<TRANSL xml:lang="en">catch-For</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hów-kɛ̀i</FORM>
+<TRANSL xml:lang="en">go-Past1</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-tâ</FORM>
+<TRANSL xml:lang="en">say-Prog</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kàwwɤ́n</FORM>
+<TRANSL xml:lang="en">place</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕê-tò</FORM>
+<TRANSL xml:lang="en">one-Dat</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs4">
+<AUDIO start="6.4915" end="8.1223"/>
+<FORM kindOf="phono">tɛ̀i tɕê-tò làw-pɯ̀</FORM>
+<TRANSL xml:lang="en">To one river, it is said.</TRANSL>
+<W>
+<FORM kindOf="phono">tɛ̀i</FORM>
+<TRANSL xml:lang="en">water</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕê-tò</FORM>
+<TRANSL xml:lang="en">one-Dat</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-pɯ̀</FORM>
+<TRANSL xml:lang="en">say-Nom</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs5">
+<AUDIO start="8.1223" end="9.5021"/>
+<FORM kindOf="phono">hów-pɯ́-à</FORM>
+<TRANSL xml:lang="en">He went there</TRANSL>
+<W>
+<FORM kindOf="phono">hów-pɯ́-à</FORM>
+<TRANSL xml:lang="en">go-Nom-Past2</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs6">
+<AUDIO start="9.4707" end="12.1677"/>
+<FORM kindOf="phono">tɤ́k tèk-sî ŋàw ɛ́i â-lòŋ làw-tâ làw-pɯ́</FORM>
+<TRANSL xml:lang="en">When he threw his net, no fish came out.</TRANSL>
+<W>
+<FORM kindOf="phono">tɤ́k</FORM>
+<TRANSL xml:lang="en">net</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tèk-sî</FORM>
+<TRANSL xml:lang="en">throw-Conv</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋàw</FORM>
+<TRANSL xml:lang="en">fish</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ɛ́i</FORM>
+<TRANSL xml:lang="en">nothing</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">â-lòŋ</FORM>
+<TRANSL xml:lang="en">Neg-come_out</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-tâ</FORM>
+<TRANSL xml:lang="en">say-Prog</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs7">
+<AUDIO start="12.0737" end="14.3316"/>
+<FORM kindOf="phono">ŋàw ɛ́i â-lòŋ tàpɯ̂tò</FORM>
+<TRANSL xml:lang="en">so no fish came out</TRANSL>
+<W>
+<FORM kindOf="phono">ŋàw</FORM>
+<TRANSL xml:lang="en">fish</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ɛ́i</FORM>
+<TRANSL xml:lang="en">nothing</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">â-lòŋ</FORM>
+<TRANSL xml:lang="en">Neg-come_out</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tàpɯ̂tò</FORM>
+<TRANSL xml:lang="en">therefore</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs8">
+<AUDIO start="14.3316" end="15.8369"/>
+<FORM kindOf="phono">ɛ́i â-lòŋ tɕùŋkɛ́i à-laàp-pɯ̂-tò</FORM>
+<TRANSL xml:lang="en">He did not catch even one fish.</TRANSL>
+<W>
+<FORM kindOf="phono">ɛ́i</FORM>
+<TRANSL xml:lang="en">nothing</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">â-lòŋ</FORM>
+<TRANSL xml:lang="en">Neg-come_out</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕùŋkɛ́i</FORM>
+<TRANSL xml:lang="en">not_even_one</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">à-lɤ̀p-pɯ̂-tò</FORM>
+<TRANSL xml:lang="en">Neg-catch-Nom-Dat</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs9">
+<AUDIO start="15.8369" end="18.4398"/>
+<FORM kindOf="phono">tówtɕé tɛ̀i-kà-pɯ̂ mɤ̂ɣkhà-tò</FORM>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɛ̀i-kà-pɯ̂</FORM>
+<TRANSL xml:lang="en">water-Abl-Gen</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mɤ̂ɣkhà-tò</FORM>
+<TRANSL xml:lang="en">spirit-Dat</TRANSL>
+</W>
+<TRANSL xml:lang="en">Then, to the spirit who was in the water:</TRANSL>
+</S>
+<S id="MERMAIDs10">
+<AUDIO start="18.2829" end="21.7639"/>
+<FORM kindOf="phono">khwɛ́i "ŋàw hàwkù-ɕî</FORM>
+<W>
+<FORM kindOf="phono">kho-ɛ́i</FORM>
+<TRANSL xml:lang="en">that-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋàw</FORM>
+<TRANSL xml:lang="en">fish</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hàwkù-ɕî</FORM>
+<TRANSL xml:lang="en">bless-Conv</TRANSL>
+</W>
+<TRANSL xml:lang="en">he said : "If you bless me with fish,</TRANSL>
+</S>
+<S id="MERMAIDs11">
+<AUDIO start="21.7326" end="23.0811"/>
+<FORM kindOf="phono">kɤ̀lá ŋàw hàwku-â lóŋátɕí</FORM>
+<TRANSL xml:lang="en">If you bless me with fish,</TRANSL>
+<W>
+<FORM kindOf="phono">kɤ̀lá</FORM>
+<TRANSL xml:lang="en">1.Sg:For</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋàw</FORM>
+<TRANSL xml:lang="en">fish</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hàwku-â</FORM>
+<TRANSL xml:lang="en">bless-Past2</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">lóŋátɕí</FORM>
+<TRANSL xml:lang="en">if</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs12">
+<AUDIO start="23.1124" end="24.9000"/>
+<FORM kindOf="phono">kɤ̀-ɕów mòmòlà kù-làpɯ̀ kàlá</FORM>
+<TRANSL xml:lang="en">I will give you my daughter Momola.</TRANSL>
+<W>
+<FORM kindOf="phono">kɤ̀-ɕów</FORM>
+<TRANSL xml:lang="en">1.Sg.Poss-daughter</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mòmòlà</FORM>
+<TRANSL xml:lang="en">Momola</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kù-làpɯ̀</FORM>
+<TRANSL xml:lang="en">give-Fut</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kàlá</FORM>
+<TRANSL xml:lang="en">2.Sg:For</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs13">
+<AUDIO start="24.8686" end="26.9070"/>
+<FORM kindOf="phono">tòhɛ́i làw-kɛ̂i làw-pɯ̀</FORM>
+<TRANSL xml:lang="en">He said so.</TRANSL>
+<W>
+<FORM kindOf="phono">tòhɛ́i</FORM>
+<TRANSL xml:lang="en">this_way</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-kɛ̂i</FORM>
+<TRANSL xml:lang="en">say-Past1</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-pɯ̀</FORM>
+<TRANSL xml:lang="en">say-Nom</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs14">
+<AUDIO start="26.9063" end="29.0075"/>
+<FORM kindOf="phono">tìktióŋ hòw-ɛ́i tɤ́k tèk-kɛ̂i ɲìpòwɲɤ̂t</FORM>
+<TRANSL xml:lang="en">The next day, when he really threw the net,</TRANSL>
+<W>
+<FORM kindOf="phono">tìktióŋ</FORM>
+<TRANSL xml:lang="en">really</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">3.Sg-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɤ́k</FORM>
+<TRANSL xml:lang="en">net</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tèk-kɛ̂i</FORM>
+<TRANSL xml:lang="en">throw-Past1</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ɲìpòwɲɤ̂t</FORM>
+<TRANSL xml:lang="en">the_next_day</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs15">
+<AUDIO start="29.0075" end="31.4535"/>
+<FORM kindOf="phono">ɲì-pòw tɤ́k tèk-ŋɛ̀isî ŋàw tɕúŋ láp-pɛ̀i</FORM>
+<TRANSL xml:lang="en">The second time he threw the net, he caught a lot of fishes.</TRANSL>
+<W>
+<FORM kindOf="phono">ɲì-pòw</FORM>
+<TRANSL xml:lang="en">two-times</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɤ́k</FORM>
+<TRANSL xml:lang="en">net</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tèk-ŋɛ̀isî</FORM>
+<TRANSL xml:lang="en">throw-when</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋàw</FORM>
+<TRANSL xml:lang="en">fish</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕúŋ</FORM>
+<TRANSL xml:lang="en">a_lot</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">láp-kɛ̀i</FORM>
+<TRANSL xml:lang="en">catch-Past1</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs16">
+<AUDIO start="31.4535" end="33.4920"/>
+<FORM kindOf="phono">láŋkɛ̀i hòw-ɛ́i ŋàw láp-pɯ́ ólín-pɯ́-kà</FORM>
+<TRANSL xml:lang="en">However, as he had caught fish, he became very happy,</TRANSL>
+<W>
+<FORM kindOf="phono">láŋkɛ̀i</FORM>
+<TRANSL xml:lang="en">however</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">3.Sg-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋàw</FORM>
+<TRANSL xml:lang="en">fish</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">láp-pɯ́</FORM>
+<TRANSL xml:lang="en">catch-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ólín-pɯ́-kà</FORM>
+<TRANSL xml:lang="en">happy-Nom-Abl</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs17">
+<AUDIO start="33.4292" end="36.7848"/>
+<FORM kindOf="phono">hòw-ɛ́i hòw-ɛ̀i-pɯ́ hòw-ɛ́i thékú-pɯ̀-kò mâ-n</FORM>
+<TRANSL xml:lang="en">and he forgot his promise.</TRANSL>
+<W>
+<FORM kindOf="phono">hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">3.Sg-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɛ̀ipɯ́</FORM>
+<TRANSL xml:lang="en">3.Sg-Gen</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">3.Sg-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">thékú-pɯ̀</FORM>
+<TRANSL xml:lang="en">promise-Gen</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kò</FORM>
+<TRANSL xml:lang="en">that</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mâ-n</FORM>
+<TRANSL xml:lang="en">forget-Past3</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs18">
+<AUDIO start="36.7534" end="37.7883"/>
+<FORM kindOf="phono">ŋàiŋɛ̀i-kɛ̂i</FORM>
+<TRANSL xml:lang="en">He went back.</TRANSL>
+<W>
+<FORM kindOf="phono">ŋàiŋɛ̀i-kɛ̂i</FORM>
+<TRANSL xml:lang="en">go_back-Past1</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs19">
+<AUDIO start="37.7569" end="39.5131"/>
+<FORM kindOf="phono">khɛ́i kí-pɯ́ tɕàlów-ôŋ</FORM>
+<TRANSL xml:lang="en">That day,</TRANSL>
+<W>
+<FORM kindOf="phono">khɛ́i</FORM>
+</W>
+<W>
+<FORM kindOf="phono">kí-pɯ́</FORM>
+<TRANSL xml:lang="en">have-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕàlòw-ôŋ</FORM>
+<TRANSL xml:lang="en">day-only</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs20">
+<AUDIO start="39.5131" end="42.2728"/>
+<FORM kindOf="phono">tɛ̀i-ɛ́i-tɕé à-mà-kô-kîkɛ̀i tɛ̀i-kàpɯ́ mɤ̂ɣkhɛ́i-tɕé</FORM>
+<TRANSL xml:lang="en">The water, the water spirit had not forgotten.</TRANSL>
+<W>
+<FORM kindOf="phono">tɛ̀i-ɛ́i-tɕé</FORM>
+<TRANSL xml:lang="en">water-Erg-also</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">à-mà-kô-kîkɛ̀i</FORM>
+<TRANSL xml:lang="en">Neg-forget-Past-Perm2</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɛ̀i-kàpɯ́</FORM>
+<TRANSL xml:lang="en">water-Gen</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mɤ̂ɣkhɛ́i-tɕé</FORM>
+<TRANSL xml:lang="en">spirit:Erg-also</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs21">
+<AUDIO start="42.2101" end="43.3390"/>
+<FORM kindOf="phono">làw-pɯ̀ hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">so he</TRANSL>
+<W>
+<FORM kindOf="phono">làw-pɯ̀</FORM>
+<TRANSL xml:lang="en">say-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">3.Sg-Erg</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs22">
+<AUDIO start="43.3077" end="46.6946"/>
+<FORM kindOf="phono">tɛ̀i-kàpɯ́ mɤ̂ɣkhɛ́i à-ma-kô-kîkɛ̀i làw-pɯ̀ nɤ́t-tɕè tɕàlòw-á tówtɕé</FORM>
+<W>
+<FORM kindOf="phono">tɛ̀i-kàpɯ́</FORM>
+<TRANSL xml:lang="en">water-Gen</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mɤ̂ɣkhɛ́i</FORM>
+<TRANSL xml:lang="en">spirit:Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">à-mà-kô-kîkɛ̀i</FORM>
+<TRANSL xml:lang="en">Neg-forget-Past-Perm2</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-pɯ̀</FORM>
+<TRANSL xml:lang="en">say-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">nɤ́t-tɕè</FORM>
+<TRANSL xml:lang="en">day-one</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕàlòw-á</FORM>
+<TRANSL xml:lang="en">day-Loc</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<TRANSL xml:lang="en">It is said that the water spirit had not forgotten, and one day,</TRANSL>
+</S>
+<S id="MERMAIDs23">
+<AUDIO start="46.6659" end="48.1712"/>
+<FORM kindOf="phono">ŋɤ̀ɣ-óŋ ŋɤ̀ɣ-kô lów-kɛ̀i tówtɕé</FORM>
+<TRANSL xml:lang="en">He came on roaring.</TRANSL>
+<W>
+<FORM kindOf="phono">ŋɤ̀ɣ-óŋ</FORM>
+<TRANSL xml:lang="en">roar-Conv2</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋɤ̀ɣ-kô</FORM>
+<TRANSL xml:lang="en">roar-Past4</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">lów-kɛ̀i</FORM>
+<TRANSL xml:lang="en">come[2]-Past1</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs24">
+<AUDIO start="48.0771" end="50.2723"/>
+<FORM kindOf="phono">hòw mómò mómòtò tówtɕé</FORM>
+<TRANSL xml:lang="en">calling "Momo Momo"</TRANSL>
+<W>
+<FORM kindOf="phono">hòw</FORM>
+<TRANSL xml:lang="en">3.Sg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mómò</FORM>
+<TRANSL xml:lang="en">Momo</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mómò-tó</FORM>
+<TRANSL xml:lang="en">Momo-Dat</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs25">
+<AUDIO start="50.2409" end="52.3734"/>
+<FORM kindOf="phono">hòw-ɕów khò ŋà-kô ŋà-kô lów-kɛ̀i, hòw-ɕów</FORM>
+<TRANSL xml:lang="en">He called his daughter</TRANSL>
+<W>
+<FORM kindOf="phono">hòw-ɕów</FORM>
+<TRANSL xml:lang="en">3.Sg.Poss-daughter</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">khò</FORM>
+<TRANSL xml:lang="en">that</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋà-kô</FORM>
+<TRANSL xml:lang="en">call-Past4</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋà-kô</FORM>
+<TRANSL xml:lang="en">call-Past4</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">lów-kɛ̀i</FORM>
+<TRANSL xml:lang="en">come[2]-Past1</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɕów</FORM>
+<TRANSL xml:lang="en">3.Sg.Poss-daughter</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs26">
+<AUDIO start="52.4048" end="53.6278"/>
+<FORM kindOf="phono">kù-lɤ́p làw-pòw-kò</FORM>
+<TRANSL xml:lang="en">He had said that he would give her.</TRANSL>
+<W>
+<FORM kindOf="phono">kù-lɤ́p</FORM>
+<TRANSL xml:lang="en">give-Fut</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-pòw-kò</FORM>
+<TRANSL xml:lang="en">say-Nom-Past4</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs27">
+<AUDIO start="53.5651" end="57.3910"/>
+<FORM kindOf="phono">á-kú-tà-pɯ̀-tò tówtɕé tàm-pô mómò-tó ŋɤ̀ɣ-kô ŋɤ̀ɣ-kô lów-kɛ̀i</FORM>
+<TRANSL xml:lang="en">Since he did not give her, so now (the spirit) remembered and came calling Momo</TRANSL>
+<W>
+<FORM kindOf="phono">á-kú-tà-pɯ̀-tò</FORM>
+<TRANSL xml:lang="en">Neg-give-Prog-Nom-Dat</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tàm-kô</FORM>
+<TRANSL xml:lang="en">remember-Past4</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mómò-tó</FORM>
+<TRANSL xml:lang="en">Momo-Dat</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋɤ̀ɣ-kô</FORM>
+<TRANSL xml:lang="en">roar-Past4</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋɤ̀ɣ-kô</FORM>
+<TRANSL xml:lang="en">roar-Past4</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">lów-kɛ̀i</FORM>
+<TRANSL xml:lang="en">come[2]-Past1</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs28">
+<AUDIO start="57.3910" end="58.8963"/>
+<FORM kindOf="phono">lòw-pɯ̀ tɕàlòw-ôŋ</FORM>
+<TRANSL xml:lang="en">When he came there at that time</TRANSL>
+<W>
+<FORM kindOf="phono">lòw-pɯ̀</FORM>
+<TRANSL xml:lang="en">come-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tɕàlòw-ôŋ</FORM>
+<TRANSL xml:lang="en">day-only</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs29">
+<AUDIO start="59.1158" end="62.3773"/>
+<FORM kindOf="phono">lów-kɛ̀i lòw-pɯ̀ tówtɕé</FORM>
+<TRANSL xml:lang="en">He came, and now</TRANSL>
+<W>
+<FORM kindOf="phono">lów-kɛ̀i</FORM>
+<TRANSL xml:lang="en">come[2]-Past1</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">lòw-pɯ̀</FORM>
+<TRANSL xml:lang="en">come-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs30">
+<AUDIO start="62.3459" end="65.3251"/>
+<FORM kindOf="phono">tɛ̀i kò tówtɕé hòwɤ̂n sɤ́ŋ pɤ́ntów</FORM>
+<TRANSL xml:lang="en">That water came all over the village</TRANSL>
+<W>
+<FORM kindOf="phono">tɛ̀i</FORM>
+<TRANSL xml:lang="en">water</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kò</FORM>
+<TRANSL xml:lang="en">that</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòwɤ̂n</FORM>
+<TRANSL xml:lang="en">3.Pl</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">sɤ́ŋ</FORM>
+<TRANSL xml:lang="en">village</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">pɤ́ntów</FORM>
+<TRANSL xml:lang="en">all</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs31">
+<AUDIO start="65.5938" end="68.1653"/>
+<FORM kindOf="phono">ɕɤ̀m-lɤ́p-ɕî á-mɛ́i-lɤ́p-pɯ́-tò tówtɕé ɛ́i</FORM>
+<TRANSL xml:lang="en">It is not good to drown, so now,</TRANSL>
+<W>
+<FORM kindOf="phono">ɕɤ̀m-lɤ́p-ɕî</FORM>
+<TRANSL xml:lang="en">drown-Fut-Conv1</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">á-mɛ́i-lɤ́p-pɯ́-tò</FORM>
+<TRANSL xml:lang="en">Neg-good-Fut-Nom-Dat</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs32">
+<AUDIO start="72.1167" end="74.4060"/>
+<FORM kindOf="phono">hòw-ɛ́i à sɤ́ŋ-ɕóŋ-ɛ́i tówtɕé hòw-tô</FORM>
+<TRANSL xml:lang="en">Now, the villagers told him</TRANSL>
+<W>
+<FORM kindOf="phono">hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">3.Sg-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">sɤ́ŋ-ɕóŋ-ɛ́i</FORM>
+<TRANSL xml:lang="en">village-group-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-tô</FORM>
+<TRANSL xml:lang="en">Erg-Dat</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs33">
+<AUDIO start="74.3432" end="76.2876"/>
+<FORM kindOf="phono">kà-ɕów mòmòlà khɛ́ijóŋ ku-á</FORM>
+<TRANSL xml:lang="en">Just give you daughter Momola</TRANSL>
+<W>
+<FORM kindOf="phono">kà-ɕów</FORM>
+<TRANSL xml:lang="en">2.Sg.Poss-Daughter</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mòmòlà</FORM>
+<TRANSL xml:lang="en">Momola</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">khɛ́ijóŋ</FORM>
+<TRANSL xml:lang="en">just</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ku-á</FORM>
+<TRANSL xml:lang="en">give-Imp</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs34">
+<AUDIO start="76.1935" end="77.8242"/>
+<FORM kindOf="phono">ájìŋlóŋátɕé sɤ́ŋ pɤ́ntów hɛ̀i-làpɯ́</FORM>
+<TRANSL xml:lang="en">otherwise, the whole village will die.</TRANSL>
+<W>
+<FORM kindOf="phono">ájìŋlóŋátɕé</FORM>
+<TRANSL xml:lang="en">otherwise</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">sɤ́ŋ</FORM>
+<TRANSL xml:lang="en">village</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">pɤ́ntów</FORM>
+<TRANSL xml:lang="en">all</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hɛ̀i-làpɯ́</FORM>
+<TRANSL xml:lang="en">die-Fut</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs35">
+<AUDIO start="77.6674" end="80.7094"/>
+<FORM kindOf="phono">khò-ɕáŋá làw-pɯ̀ tówtɕé úpɛ́i á-kí-pɯ́-tò</FORM>
+<TRANSL xml:lang="en">They said that there was no chance</TRANSL>
+<W>
+<FORM kindOf="phono">khò-ɕáŋá</FORM>
+<TRANSL xml:lang="en">that-for</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">làw-pɯ̀</FORM>
+<TRANSL xml:lang="en">say-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">úpɛ́i</FORM>
+<TRANSL xml:lang="en">chance</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">á-kí-pɯ́-tò</FORM>
+<TRANSL xml:lang="en">Neg-have-Nom-Dat</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs36">
+<AUDIO start="80.3958" end="82.6537"/>
+<FORM kindOf="phono">tówtɕe hòwɛ́i hòw-ɕów mòmòlà khò kú-kɛ̀i</FORM>
+<TRANSL xml:lang="en">So he gave his daughter to it.</TRANSL>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɛ́i</FORM>
+<TRANSL xml:lang="en">3.Sg-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɕów</FORM>
+<TRANSL xml:lang="en">3.Sg.Poss-daughter</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mòmòlà</FORM>
+<TRANSL xml:lang="en">Momola</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">khò</FORM>
+<TRANSL xml:lang="en">that</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kú-kɛ̀i</FORM>
+<TRANSL xml:lang="en">give[2]-Past1</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs37">
+<AUDIO start="83.5230" end="87.5058"/>
+<FORM kindOf="phono">úpɛ́i á-kí-pɯ́-tò, hòw-ɕów mòmòlà khò</FORM>
+<TRANSL xml:lang="en">There was no chance,</TRANSL>
+<W>
+<FORM kindOf="phono">úpɛ́i</FORM>
+<TRANSL xml:lang="en">chance</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">á-kí-pɯ́-tò</FORM>
+<TRANSL xml:lang="en">Neg-have-Nom-Dat</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">hòw-ɕów</FORM>
+<TRANSL xml:lang="en">3.Sg.Poss-daughter</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mòmòlà</FORM>
+<TRANSL xml:lang="en">Momola</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">khò</FORM>
+<TRANSL xml:lang="en">that</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs38">
+<AUDIO start="87.5058" end="89.1992"/>
+<FORM kindOf="phono">tɛ̀i khò-lá ku-ân ɤ́p-kɛ̀i</FORM>
+<TRANSL xml:lang="en">so he gave his daughter to him, throwing her into the water</TRANSL>
+<W>
+<FORM kindOf="phono">tɛ̀i</FORM>
+<TRANSL xml:lang="en">water</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">khò-lá</FORM>
+<TRANSL xml:lang="en">that-For</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ku-ân</FORM>
+<TRANSL xml:lang="en">give-Past3</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ɤ́p-kɛ̀i</FORM>
+<TRANSL xml:lang="en">throw[2]-Past1</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs39">
+<AUDIO start="89.1678" end="91.3631"/>
+<FORM kindOf="phono">khwɛ́i tówtɕé khɛ́ijóŋ maìlɤ́m-tɕè</FORM>
+<TRANSL xml:lang="en">and therefore now we believe</TRANSL>
+<W>
+<FORM kindOf="phono">kho-ɛ́i</FORM>
+<TRANSL xml:lang="en">that-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">khɛ́ijóŋ</FORM>
+<TRANSL xml:lang="en">just</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">maìlɤ́m-tɕè</FORM>
+<TRANSL xml:lang="en">believe-?</TRANSL>
+</W>
+</S>
+<S id="MERMAIDs40">
+<AUDIO start="94.3423" end="98.2937"/>
+<FORM kindOf="phono">tɛ̀i-á kí-pɯ́ khwɛ́i tówtɕe sɤ̂nɛ̀i mòmòlá tòko ŋà-tâ</FORM>
+<TRANSL xml:lang="en">that she lives in water, and we call her Momola.</TRANSL>
+<W>
+<FORM kindOf="phono">tɛ̀i-á</FORM>
+<TRANSL xml:lang="en">water-Loc</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kí-pɯ́</FORM>
+<TRANSL xml:lang="en">have-Nom</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">kho-ɛ́i</FORM>
+<TRANSL xml:lang="en">that-Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tówtɕé</FORM>
+<TRANSL xml:lang="en">now</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">sɤ̂nɛ̀i</FORM>
+<TRANSL xml:lang="en">1.Pl.Incl:Erg</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">mòmòlá</FORM>
+<TRANSL xml:lang="en">Momola</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">tòkò</FORM>
+<TRANSL xml:lang="en">like_that</TRANSL>
+</W>
+<W>
+<FORM kindOf="phono">ŋà-tâ</FORM>
+<TRANSL xml:lang="en">call-Perm</TRANSL>
+</W>
+</S>
+</TEXT>
