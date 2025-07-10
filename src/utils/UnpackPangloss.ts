@@ -10,11 +10,9 @@ export async function getProblemFromPangloss(xmlFilePath:string) :Promise<parsin
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlFileContent, "text/xml");
 
-    let i = 0;
-    let sentenceID = `S${++i}`;
-    let sentenceElement = xmlDoc.getElementById(sentenceID);
+    let sentenceElements = xmlDoc.querySelectorAll("S");
 
-    while(sentenceElement != null){
+    for(const sentenceElement of sentenceElements){
         const times = sentenceElement.querySelector("AUDIO");
         const text = sentenceElement.querySelector("FORM")?.innerHTML!;
 
@@ -26,9 +24,6 @@ export async function getProblemFromPangloss(xmlFilePath:string) :Promise<parsin
             end:endTime,
             text:text
         })
-
-        sentenceID = `S${++i}`;
-        sentenceElement = xmlDoc.getElementById(sentenceID);
     }
 
     //strip .xml and add .wav

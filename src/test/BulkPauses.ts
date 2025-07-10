@@ -1,7 +1,12 @@
-import { makePauseFinder } from "../utils/FindPauses";
 import type { pausesResult } from "../utils/EvaluatePauses";
-import { runWithoutDisplay } from "../utils/ProcessExample";
-import { getProblemFromBloom } from "../utils/UnpackBloomFormat";
+import { makePauseFinder } from "../utils/FindPauses";
+import { runWithoutDisplay} from "../utils/ProcessExample";
+import { getProblemFromBloom} from "../utils/UnpackBloomFormat";
+import { getProblemFromPangloss } from "../utils/UnpackPangloss";
+
+const bookNames = ["Kade Comma", "04 - Cat and Dog and the Hats"];
+
+const panglossFiles = ["crdo-LAG-hyena", "lamo-s-0001"].map(name=>`./data/${name}.xml`)
 
 const MIN_GAP_PRE_DROP = 0.001;
 const PAUSE_DURATION_MIN = 0.03;
@@ -18,18 +23,23 @@ const DISTANCE_POWER = 2;
 const PAUSE_LENGTH_FACTOR = 10;
 const PAUSE_LENGTH_POWER = 1;
 
-const htmFiles = ["./data/Kade Comma.htm"];
-
 const problems = [];
-for(const htmFile of htmFiles){
-    const nextProbs = await getProblemFromBloom(htmFile);
-    for(const prob of nextProbs){
+
+for(const bookName of bookNames){
+    const thisBookProbs = await getProblemFromBloom(`./data/${bookName}.htm`);
+    for(const prob of thisBookProbs){
         problems.push(prob);
     }
 }
 
+for(const pfPath of panglossFiles){
+    problems.push(await getProblemFromPangloss(pfPath));
+}
+
+console.log(problems)
+
 const aggregateResult : pausesResult = {
-    pauses:[],
+    pauses: [],
     predictedNumPauses:0,
     actualNumPauses:0,
     numCorrectIdentified:0

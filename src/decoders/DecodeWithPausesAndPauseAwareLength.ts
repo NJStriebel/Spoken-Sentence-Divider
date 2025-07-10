@@ -1,14 +1,15 @@
 import { makePauseFinder } from "../utils/FindPauses";
 import type { TimedTextSegment } from "../utils/TimedTextSegment";
-import { textLength } from "./DecodeWithTextLength";
-import { pauseAwareTextLength } from "./PauseAwareTextLength";
+import { quietestNearby } from "./DecodeWithQuietestNearby";
+import { makePauseAwareTextLength } from "./PauseAwareTextLength";
 
 //the idea of this algorithm is to map each sentence break and pause to a level of confidence that they match
 //we'll keep that mapping sorted by confidence level, then apply the matches in order of confidence level, skipping pauses that have already been assigned
-export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, distanceFactor:number, distancePower:number, pauseWidthFactor:number, pauseWidthPower:number){
+export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, fractionOfSpeech:number, distanceFactor:number, distancePower:number, pauseWidthFactor:number, pauseWidthPower:number){
     const confidence = makeConfidenceMetric(distanceFactor, distancePower, pauseWidthFactor, pauseWidthPower);
-    const pauseFinder = makePauseFinder(minPauseDuration, minGapPreDrop, minGapPostDrop, kMeansIterations, k).findPauses!;
-    
+    const pauseFinder = makePauseFinder(minPauseDuration, minGapPreDrop, minGapPostDrop, kMeansIterations, k, fractionOfSpeech).findPauses!;
+    const pauseAwareTextLength = makePauseAwareTextLength(kMeansIterations, k, fractionOfSpeech);
+
     return {
         name: `pauses-and-pause-aware-length: df-${distanceFactor} dp-${distancePower} pwf-${pauseWidthFactor} pwp-${pauseWidthPower}`,
         decode: (initialSegments: TimedTextSegment[], audioData: number[], duration: number)=>{
@@ -19,14 +20,15 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
             }
             catch(error){
                 console.error("Too few pauses were found to make pause-based sentence break assignments.\nDefaulting to text length.")
-                return textLength(initialSegments, audioData, duration);
+                return quietestNearby(initialSegments, audioData, duration);
             }
 
             //relies on getThreshold, which does not depend on min pause length or pause join parameters
-            const textLengthBreaks = pauseAwareTextLength(initialSegments, audioData, duration, kMeansIterations, k);
+            const textLengthBreaks = pauseAwareTextLength(initialSegments, audioData, duration);
 
-            if(pauses.length < textLengthBreaks.length){
-                console.error("found fewer pauses than needed to assign one to each phrase break");
+            if(pauses.length < textLengthBreaks.length-1){
+                console.error(`found fewer pauses (${pauses.length}) than needed (${textLengthBreaks.length-1}) to assign one to each phrase break.\nDefaulting to text length`);
+                return quietestNearby(initialSegments, audioData, duration);
             }
 
             const pausePoints : number[] = pauses.map((pause:TimedTextSegment)=>{
@@ -35,7 +37,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
             let splitPoints : number[] = textLengthBreaks.map(split=>split.end);
             splitPoints = splitPoints.slice(0, -1);
 
-            const confidenceTable :orderedConfidenceList = new orderedConfidenceList();
+            const confidenceTable : orderedConfidenceList = new orderedConfidenceList();
             const adjustedSplits : confidenceNode[] = [];
 
             for(let i = 0; i < pausePoints.length; i++){
@@ -55,6 +57,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
                 adjustedSplits.push(confidenceTable.pop())
             }
 
+            try{
             for(const aSplit of adjustedSplits){
                 const thisPause = pauses[aSplit.pauseIndex];
 
@@ -62,6 +65,13 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
 
                 textLengthBreaks[aSplit.splitIndex].end = pauseCenter;
                 textLengthBreaks[aSplit.splitIndex + 1].start = pauseCenter;
+            }
+            }catch(error){
+                console.error("tried to look up a pause whose index doesn't exist")
+                console.log("pauses")
+                console.log(pauses)
+                console.log("adjusted splits")
+                console.log(adjustedSplits)
             }
 
             return textLengthBreaks;

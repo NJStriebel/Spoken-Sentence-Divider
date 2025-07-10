@@ -292,7 +292,7 @@ function clusterWithGMM(audioData:number[], kMeansIterations:number, GMMiteratio
 let speechThreshold:number|undefined = undefined;
 let lastInput:number[]|undefined = undefined;
 //we default to k=3 because there's usually a big spike for power=0, then our two peaks for background noise and speech
-function getThreshold(audioData:number[], iterations:number, k=2, fractionOfSpeech=4):number{
+function getThreshold(audioData:number[], iterations:number, k:number, fractionOfSpeech:number):number{
     if(lastInput != audioData){
         speechThreshold = undefined;
         lastInput = audioData;
@@ -300,7 +300,7 @@ function getThreshold(audioData:number[], iterations:number, k=2, fractionOfSpee
     
     if(speechThreshold === undefined){
         if(k<2) k=2;
-        console.log("calculating threshold")
+        // console.log("calculating threshold")
         const powerClusters = clusterWithKmeans(audioData, k, iterations);
         powerClusters.sort((a,b)=>b.centroid-a.centroid);
 
@@ -311,14 +311,14 @@ function getThreshold(audioData:number[], iterations:number, k=2, fractionOfSpee
         //  If it's 2, powerThreshold is halfway between speech centroid and background centroid.
         //  If it's 3, powerThreshold is 1/3 of the way from background centroid up to speech centroid 
         //  As it approaches infinity, powerThreshold approaches the background noise centroid
-        const powerThreshold = powerClusters[1].centroid + (powerClusters[0].centroid - powerClusters[1].centroid) / fractionOfSpeech;
+        const powerThreshold = powerClusters[1].centroid + (powerClusters[0].centroid - powerClusters[1].centroid) * fractionOfSpeech;
 
         speechThreshold = 10**powerThreshold;
-        console.log(`Threshold found at ${speechThreshold}\ncentroids are ${10**powerClusters[0].centroid} and ${10**powerClusters[1].centroid}`)
-        printHistogramWithMarkers(audioData, 100, [speechThreshold, 10**powerClusters[0].centroid, 10**powerClusters[1].centroid]);
+        // console.log(`Threshold found at ${speechThreshold}\ncentroids are ${10**powerClusters[0].centroid} and ${10**powerClusters[1].centroid}`)
+        //printHistogramWithMarkers(audioData, 100, [speechThreshold, 10**powerClusters[0].centroid, 10**powerClusters[1].centroid]);
     }
     else{
-        console.log(`returning pre-computed Threshold: ${speechThreshold}`)
+        // console.log(`returning pre-computed Threshold: ${speechThreshold}`)
     }
     return speechThreshold;
 }
@@ -382,11 +382,11 @@ function joinPauses(pauses:TimedTextSegment[], maxGapToJoin:number):TimedTextSeg
     return joinedPauses;
 }
 
-export function makePauseFinder(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number):decodingAlgorithm{
+export function makePauseFinder(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, fractionOfSpeech:number):decodingAlgorithm{
     return {
         name:`pauseFinder: mpd-${minPauseDuration} mgPREd-${minGapPreDrop} mgPOSTd-${minGapPostDrop} kmi-${kMeansIterations} k-${k}`,
         findPauses: (audioData:number[], duration:number) => {
-            const thresh = getThreshold(audioData, kMeansIterations, k);
+            const thresh = getThreshold(audioData, kMeansIterations, k, fractionOfSpeech);
             
             const sampleLength = duration / audioData.length; //seconds per sample
 
@@ -413,9 +413,9 @@ export function makePauseFinder(minPauseDuration:number, minGapPreDrop:number, m
     }
 }
 
-export function makeSpeechFinder(kMeansIterations:number):(ad:number[])=>boolean[]{
+export function makeSpeechFinder(kMeansIterations:number, k:number, fractionOfSpeech:number):(ad:number[])=>boolean[]{
     return (audioData:number[])=>{
-        const thresh = getThreshold(audioData, kMeansIterations);
+        const thresh = getThreshold(audioData, kMeansIterations, k, fractionOfSpeech);
         return audioData.map(point => point >= thresh);
     }
 }

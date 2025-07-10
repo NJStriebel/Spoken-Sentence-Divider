@@ -3,17 +3,39 @@ import { quietestNearby } from "../decoders/DecodeWithQuietestNearby";
 import { textLength } from "../decoders/DecodeWithTextLength";
 import { makePauseFinder } from "../utils/FindPauses";
 import { runWithoutDisplay, type decodeResult, type decodingAlgorithm } from "../utils/ProcessExample";
-import { getProblemFromFiles, type parsingProblem } from "../utils/UnpackBloomFormat";
+import { getProblemFromBloom, type parsingProblem } from "../utils/UnpackBloomFormat";
+import { getProblemFromPangloss } from "../utils/UnpackPangloss";
 
-const bookNames = ["Kãde cɔ̃mmã", "04 - Cat and Dog and the Hats"];
+const bookNames = ["Kade Comma", "04 - Cat and Dog and the Hats"];
+
+const panglossFiles = ["crdo-LAG-hyena", "lamo-s-0001"].map(name=>`./data/${name}.xml`)
+
+const MIN_GAP_PRE_DROP = 0.001;
+const PAUSE_DURATION_MIN = 0.03;
+const MIN_GAP_POST_DROP = 0.5;
+
+const K_MEANS_ITERATIONS=20;
+const K = 2;
+
+//determines where the threshold is placed. 1/4 means 25% of the way from the background noise centroid to the speech centroid.
+const FRACTION_OF_SPEECH = 1/4
+
+const DISTANCE_FACTOR = -1;
+const DISTANCE_POWER = 2;
+const PAUSE_LENGTH_FACTOR = 10;
+const PAUSE_LENGTH_POWER = 1;
 
 const problems = [];
+
 for(const bookName of bookNames){
-    const thisBookProbs = await getProblemFromFiles(`./data/${bookName}.htm`);
+    const thisBookProbs = await getProblemFromBloom(`./data/${bookName}.htm`);
     for(const prob of thisBookProbs){
-        prob.audioFileName = `./data/${bookName}-audio/` + prob.audioFileName
         problems.push(prob);
     }
+}
+
+for(const pfPath of panglossFiles){
+    problems.push(await getProblemFromPangloss(pfPath));
 }
 
 console.log(problems)
@@ -30,11 +52,11 @@ const aggregateBaseline : decodeResult = {
     outOf:0,
 };
 
-const pauseFinder = makePauseFinder(0.001, 0.2, 5).findPauses!;
+const pauseFinder = makePauseFinder(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH).findPauses!;
 
 const algorithm :decodingAlgorithm = {
     name:"test-alg",
-    decode: makePausesAndPauseAwareLength(pauseFinder, -1, 2, 3, 1).decode,
+    decode: makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_FACTOR, PAUSE_LENGTH_POWER).decode,
     findPauses: pauseFinder
 }
 

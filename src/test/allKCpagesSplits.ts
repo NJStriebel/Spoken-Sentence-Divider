@@ -28,8 +28,8 @@ const aggregateBaseline : decodeResult = {
 };
 
 const MIN_GAP_PRE_DROP = 0.001;
-const PAUSE_DURATION_MIN = 0.01;
-const MIN_GAP_POST_DROP = 0.3;
+const PAUSE_DURATION_MIN = 0.03;
+const MIN_GAP_POST_DROP = 0.5;
 
 const K_MEANS_ITERATIONS=100;
 const K = 2;
