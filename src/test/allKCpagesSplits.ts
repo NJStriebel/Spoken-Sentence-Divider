@@ -27,23 +27,27 @@ const aggregateBaseline : decodeResult = {
     outOf:0,
 };
 
+//min gap refers to the smallest gap that can exist between two pauses without it being joined
 const MIN_GAP_PRE_DROP = 0.001;
-const PAUSE_DURATION_MIN = 0.03;
-const MIN_GAP_POST_DROP = 0.5;
+const PAUSE_DURATION_MIN = 0.1;
+const MIN_GAP_POST_DROP = 0.15;
 
-const K_MEANS_ITERATIONS=100;
+const K_MEANS_ITERATIONS=10;
 const K = 2;
 
-const DISTANCE_FACTOR = -1;
-const DISTANCE_POWER = 2;
-const PAUSE_LENGTH_FACTOR = 10;
-const PAUSE_LENGTH_POWER = 1;
+//determines where the threshold is placed. 1/4 means 25% of the way from the background noise centroid to the speech centroid.
+const FRACTION_OF_SPEECH = 3/4
 
-const pauseFinder = makePauseFinder(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K).findPauses!;
+const DISTANCE_FACTOR = -0.025;
+const DISTANCE_POWER = 2;
+const PAUSE_LENGTH_FACTOR = 1; //only matters relative to distance factor. Remove in final form.
+const PAUSE_LENGTH_POWER = 0.5;
+
+const pauseFinder = makePauseFinder(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH).findPauses!;
 
 const algorithm :decodingAlgorithm = {
     name:"test-alg",
-    decode: makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_FACTOR, PAUSE_LENGTH_POWER).decode,
+    decode: makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_FACTOR, PAUSE_LENGTH_POWER).decode,
     findPauses: pauseFinder
 }
 

@@ -12,15 +12,16 @@ const PAGE_INDEX = 3;
 
 const problems = await getProblemFromBloom(`./data/${BOOK_NAME}.htm`);
 
-const MIN_GAP_PRE_DROP = 0.001;
-const PAUSE_DURATION_MIN = 0.03;
-const MIN_GAP_POST_DROP = 0.5;
+//min gap refers to the smallest gap that can exist between two pauses without it being joined
+const MIN_GAP_PRE_DROP = 0.05;
+const PAUSE_DURATION_MIN = 0.05;
+const MIN_GAP_POST_DROP = 0.1;
 
-const K_MEANS_ITERATIONS=100;
+const K_MEANS_ITERATIONS=10;
 const K = 2;
 
 //determines where the threshold is placed. 1/4 means 25% of the way from the background noise centroid to the speech centroid.
-const FRACTION_OF_SPEECH = 1/4
+const FRACTION_OF_SPEECH = 1/2
 
 const DISTANCE_FACTOR = -1;
 const DISTANCE_POWER = 2;

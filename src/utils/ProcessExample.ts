@@ -1,9 +1,9 @@
 import type {TimedTextSegment} from "./TimedTextSegment"
 import type { pausesResult } from "./EvaluatePauses"
-import {errorsOnSegmentation} from "./ErrorCalc"
 import {makeWaveSurfer} from "./makeWaveSurfer"
 import { evaluatePauses } from "./EvaluatePauses"
 import { evaluateSplits } from "./EvaluateSplits"
+import { errorsOnSegmentation } from "./ErrorCalc"
 
 export type decodingAlgorithm = {
     name:string,
@@ -69,7 +69,8 @@ function runOneAlgorithm(targetSegs:TimedTextSegment[], audioData:number[], dura
         resultSegs = alg.decode!(segs, audioData, duration);
         const correctSplits = evaluateSplits(resultSegs, targetSegs, pauses);
         const numTotalSplits = segs.length-1;
-        return {segs:resultSegs, correct:correctSplits, outOf:numTotalSplits} as decodeResult;
+        const error = evaluateSplits(resultSegs, targetSegs);
+        return {segs:resultSegs, correct:correctSplits, outOf:numTotalSplits, mse:error} as decodeResult;
     }
     else if(pauseFinder){
         resultSegs = alg.findPauses!(audioData, duration);
@@ -106,6 +107,11 @@ function displayOneResult(algorithm:decodingAlgorithm, soundfile:string, result:
         accuracyDisplay.innerText = `Accuracy: ${dResult.correct}/${dResult.outOf} correct`;
         accuracyDisplay.id = `${algorithm.name}-accuracy-display`;
         container.appendChild(accuracyDisplay);
+
+        const meanErrorDisplay = document.createElement("p");
+        meanErrorDisplay.innerText = `Mean squared error: ${dResult.mse}`;
+        meanErrorDisplay.id = `${algorithm.name}-mean-error`
+        container.appendChild(meanErrorDisplay);
 
         makeWaveSurfer(wsDisplay.id, soundfile, dResult.segs, false);
     }

@@ -1,5 +1,6 @@
 import type { TimedTextSegment } from "./TimedTextSegment";
 
+//floating point equality check
 function fpEqual(x1:number, x2:number):boolean{
     const EPSILON = 0.000001;
     return Math.abs(x1-x2) < EPSILON;
@@ -17,6 +18,11 @@ export function errorsOnSegmentation(segmentationResult:TimedTextSegment[], segm
     //the number of splits we've made is one less than the number of segments. We don't need to check the start of the first segment OR the end of the last segment
     for(let i = 0; i < segmentationResult.length - 1; i++){
         if( !fpEqual(segmentationResult[i].end, segmentationResult[i+1].start) || !fpEqual(segmentationTarget[i].end, segmentationTarget[i+1].start) || segmentationResult[i].text !== segmentationTarget[i].text){
+            console.error("Attempted to run error checking on non-matching segments:");
+            // console.log(segmentationResult[i]);
+            // console.log(segmentationResult[i+1]);
+            // console.log(segmentationTarget[i]);
+            // console.log(segmentationTarget[i+1]);
             return [];
         }
         else{

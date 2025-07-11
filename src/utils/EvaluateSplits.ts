@@ -22,7 +22,7 @@ export function evaluateSplits(guessRegions:TimedTextSegment[], targetRegions:Ti
     let pauseI = 0;
     let guessI = 0;
     while(pauseI < pauses.length && guessI < targetRegions.length-1){
-        if(pauses[pauseI].start < guessRegions[guessI].end && pauses[pauseI].end > guessRegions[guessI].end){
+        if(pauses[pauseI].start <= guessRegions[guessI].end && pauses[pauseI].end >= guessRegions[guessI].end){
             pauseMap[pauseI].guessIndex = guessI;
             pauseI++;
             guessI++;

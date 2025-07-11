@@ -1,6 +1,7 @@
 import { makePauseFinder } from "../utils/FindPauses";
 import type { TimedTextSegment } from "../utils/TimedTextSegment";
 import { quietestNearby } from "./DecodeWithQuietestNearby";
+import { textLength } from "./DecodeWithTextLength";
 import { makePauseAwareTextLength } from "./PauseAwareTextLength";
 
 //the idea of this algorithm is to map each sentence break and pause to a level of confidence that they match
@@ -20,7 +21,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
             }
             catch(error){
                 console.error("Too few pauses were found to make pause-based sentence break assignments.\nDefaulting to text length.")
-                return quietestNearby(initialSegments, audioData, duration);
+                console.log( quietestNearby(textLength(initialSegments, audioData, duration), audioData, duration) );
             }
 
             //relies on getThreshold, which does not depend on min pause length or pause join parameters
@@ -28,7 +29,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
 
             if(pauses.length < textLengthBreaks.length-1){
                 console.error(`found fewer pauses (${pauses.length}) than needed (${textLengthBreaks.length-1}) to assign one to each phrase break.\nDefaulting to text length`);
-                return quietestNearby(initialSegments, audioData, duration);
+                return quietestNearby(textLength(initialSegments, audioData, duration), audioData, duration);
             }
 
             const pausePoints : number[] = pauses.map((pause:TimedTextSegment)=>{

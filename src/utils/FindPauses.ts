@@ -95,7 +95,8 @@ function clusterWithKmeans(audioData:number[], k:number, clusteringIterations:nu
     })
 }
 
-function clusterWithKmeansAdjustToPeak(audioData:number[], k:number, clusteringIterations:number, numBins=100, moveLimit=5):GMMcluster[]{
+function clusterWithKmeansAdjustToPeak(audioData:number[], k:number, clusteringIterations:number, maxCentroidMovePercent=1):GMMcluster[]{
+    const numBins = 100;
     const powerClusters = clusterWithKmeans(audioData, k, clusteringIterations);
     const powers = audioData.map((amp)=>{return Math.log10(amp+0.000000000001)})
 
@@ -114,7 +115,7 @@ function clusterWithKmeansAdjustToPeak(audioData:number[], k:number, clusteringI
         let nearbyMaxI = -1;
         let nearbyMaxCount = 0;
 
-        for(let i = centroidBinI - moveLimit; i < centroidBinI+moveLimit ; i++){
+        for(let i = Math.max(centroidBinI - maxCentroidMovePercent, 0); i < Math.min(centroidBinI+maxCentroidMovePercent, bins.length-1) ; i++){
             if(bins[i] > nearbyMaxCount){
                 nearbyMaxCount = bins[i];
                 nearbyMaxI = i;
@@ -346,7 +347,7 @@ function getThreshold(audioData:number[], iterations:number, k:number, fractionO
 
         speechThreshold = 10**powerThreshold;
         // console.log(`Threshold found at ${speechThreshold}\ncentroids are ${10**powerClusters[0].centroid} and ${10**powerClusters[1].centroid}`)
-        printHistogramWithMarkers(audioData, 100, [speechThreshold, 10**powerClusters[0].centroid, 10**powerClusters[1].centroid]);
+        //printHistogramWithMarkers(audioData, 100, [speechThreshold, 10**powerClusters[0].centroid, 10**powerClusters[1].centroid]);
     }
     else{
         // console.log(`returning pre-computed Threshold: ${speechThreshold}`)

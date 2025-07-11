@@ -14,7 +14,16 @@ export async function getProblemFromPangloss(xmlFilePath:string) :Promise<parsin
 
     for(const sentenceElement of sentenceElements){
         const times = sentenceElement.querySelector("AUDIO");
-        const text = sentenceElement.querySelector("FORM")?.innerHTML!;
+        const textElements = sentenceElement.querySelectorAll("FORM");
+        const formKind = textElements[0].getAttribute("kindOf");
+        let text = "";
+
+        for(const te of textElements){
+            if(te.getAttribute("kindOf") === formKind){
+                text = text + te.innerHTML;
+            }
+        }
+
 
         const startTime = parseFloat(times?.getAttribute("start")!);
         const endTime = parseFloat(times?.getAttribute("end")!);
@@ -24,6 +33,13 @@ export async function getProblemFromPangloss(xmlFilePath:string) :Promise<parsin
             end:endTime,
             text:text
         })
+    }
+
+    //the end of a segment may not perfectly line up with the beginning of the next segment. Fix that.
+    for(let i = 0; i < segs.length-1; i++){
+        const splitPoint = (segs[i].end + segs[i+1].start) / 2;
+        segs[i].end = splitPoint;
+        segs[i+1].start = splitPoint;
     }
 
     //strip .xml and add .wav
