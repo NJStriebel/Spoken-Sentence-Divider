@@ -1,9 +1,10 @@
 import { makePausesAndPauseAwareLength } from "../decoders/DecodeWithPausesAndPauseAwareLength";
 import { quietestNearby } from "../decoders/DecodeWithQuietestNearby";
 import { textLength } from "../decoders/DecodeWithTextLength";
-import { errorsOnSegmentation } from "../utils/ErrorCalc";
+import { evaluateSplits } from "../utils/EvaluateSplits";
 import { makePauseFinder } from "../utils/FindPauses";
 import { runWithoutDisplay, type decodeResult, type decodingAlgorithm } from "../utils/ProcessExample";
+import { ttsFromAeneasOutput } from "../utils/UnpackAeneasOutput";
 import { getProblemFromBloom, type parsingProblem } from "../utils/UnpackBloomFormat";
 import { getProblemFromPangloss } from "../utils/UnpackPangloss";
 
@@ -16,7 +17,7 @@ const panglossFiles:string[] = [
     "crdo-CKB_WOMEN", 
     "crdo-LAG-hyena", 
     "crdo-NBC_MERMAID",
-    "crdo-NGE_FOURMI", 
+    //"crdo-NGE_FOURMI", //for whatever reason, aeneas can't handle this example
     "crdo-SVM_LIEVRE",
     "crdo-WLS_UVEAC1FB_1",
     "IKE_KAUTJAJUK_STORY",
@@ -36,9 +37,9 @@ const K = 2;
 const FRACTION_OF_SPEECH = 3/4
 
 const DISTANCE_FACTOR = -0.025;
-const DISTANCE_POWER = 2;
 const PAUSE_LENGTH_FACTOR = 1; //only matters relative to distance factor. Remove in final form.
-const PAUSE_LENGTH_POWER = 2;
+const DISTANCE_POWER = 2;
+const PAUSE_LENGTH_POWER = 1;
 
 const problems = [];
 
@@ -73,6 +74,12 @@ const aggregateBaseline : agResult = {
     outOf:0,
 };
 
+const aggregateAeneas : agResult = {
+    adjustedMSEs: [],
+    correct: 0,
+    outOf:0,
+};
+
 const pauseFinder = makePauseFinder(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH).findPauses!;
 
 const algorithm :decodingAlgorithm = {
@@ -89,17 +96,28 @@ const baseLineAlg : decodingAlgorithm = {
 
 type pageResult = {
     result:decodeResult,
-    baseline:decodeResult
+    baseline:decodeResult,
+    aeneas:decodeResult
 }
 
 async function onePage(prob: parsingProblem, on:number, of:number):Promise<pageResult>{
     console.log(`Start processing ${on}/${of}`)
     const result = await runWithoutDisplay(prob.targetSegments, prob.audioFileName, algorithm) as decodeResult;
     console.log(`ran main algorithm on ${on}/${of}`);
-    //const baseline = await runWithoutDisplay(prob.targetSegments, prob.audioFileName, baseLineAlg) as decodeResult;
-    //console.log(`ran baseline on ${on}/${of}`)
 
-    return {result:result, baseline:{correct:0, mse:0, outOf:0, segs:[]}/*baseline*/} as pageResult;
+    const baseline = await runWithoutDisplay(prob.targetSegments, prob.audioFileName, baseLineAlg) as decodeResult;
+    console.log(`ran baseline on ${on}/${of}`)
+
+    const aeneasSegs = await ttsFromAeneasOutput(`./aeneasOutput/${prob.audioFileName.slice(20, prob.audioFileName.length-4)}-aeneasOutput.txt`); 
+    const aeneasAlgorithm = {
+        name:"aeneas",
+        decode:(is, ad, d)=>aeneasSegs,
+        findPauses:pauseFinder
+    }as decodingAlgorithm
+    const aeneasResult = await runWithoutDisplay(prob.targetSegments, prob.audioFileName, aeneasAlgorithm) as decodeResult;
+    console.log(`ran aeneas on ${on}/${of}`)
+
+    return {result:result, aeneas:aeneasResult, baseline:baseline};
 }
 
 const results: Promise<pageResult>[] = [];
@@ -111,6 +129,7 @@ for(const prob of problems){
 
 let perfectPages = 0;
 let baselinePerfectPages = 0;
+let aeneasPerfectPages = 0;
 
 i = 1;
 for(const output of results){
@@ -127,10 +146,17 @@ for(const output of results){
     aggregateBaseline.outOf! += thisPage.baseline.outOf!;
     aggregateBaseline.adjustedMSEs.push(thisPage.baseline.mse! * thisPage.baseline.outOf!);
     if(thisPage.baseline.correct! == thisPage.baseline.outOf!) baselinePerfectPages++;
+
+    aggregateAeneas.correct! += thisPage.aeneas.correct!;
+    aggregateAeneas.outOf! += thisPage.aeneas.outOf!;
+    aggregateAeneas.adjustedMSEs.push(thisPage.aeneas.mse! * thisPage.aeneas.outOf!);
+    if(thisPage.aeneas.correct! == thisPage.aeneas.outOf!) aeneasPerfectPages++;
 }
 
 const resultMSE = aggregateResult.adjustedMSEs.reduce((total,current)=>total+current) / aggregateResult.outOf;
 const baselineMSE = aggregateBaseline.adjustedMSEs.reduce((total,current)=>total+current) / aggregateBaseline.outOf;
+const aeneasMSE = aggregateAeneas.adjustedMSEs.reduce((total,current)=>total+current) / aggregateAeneas.outOf;
 
 console.log(`algorithm under test:\nphrases: ${aggregateResult.correct}/${aggregateResult.outOf}\nmse: ${resultMSE}\npages: ${perfectPages}/${i}`);
 console.log(`baseline:\nphrases: ${aggregateBaseline.correct}/${aggregateBaseline.outOf}\nmse: ${baselineMSE}\npages: ${baselinePerfectPages}/${i}`);
+console.log(`aeneas:\nphrases: ${aggregateAeneas.correct}/${aggregateAeneas.outOf}\nmse: ${aeneasMSE}\npages: ${aeneasPerfectPages}/${i}`);

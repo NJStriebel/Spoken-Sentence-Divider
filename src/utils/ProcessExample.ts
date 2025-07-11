@@ -36,8 +36,8 @@ export async function runAndDisplay(targetSegs:TimedTextSegment[], audiofile:str
     sents.innerText = targetSegs.reduce((msg, thisSeg, thisIndex)=>{
         if(thisIndex === 0) return msg + thisSeg.text;
         else if(thisIndex < 5) return msg + "\n" + thisSeg.text;
-        else if(thisIndex === 5) return msg + "\n" + thisSeg.text + "\n"
-        else return msg + "."
+        else if(thisIndex === 5) return msg + "\n" + thisSeg.text // //"\n"
+        else return msg + "\n" + thisSeg.text//"."
     }, "")
 
     const audio = Array.from( ws.getDecodedData()?.getChannelData(0)! );

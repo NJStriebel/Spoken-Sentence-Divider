@@ -17,12 +17,12 @@ export function errorsOnSegmentation(segmentationResult:TimedTextSegment[], segm
     const errors = [];
     //the number of splits we've made is one less than the number of segments. We don't need to check the start of the first segment OR the end of the last segment
     for(let i = 0; i < segmentationResult.length - 1; i++){
-        if( !fpEqual(segmentationResult[i].end, segmentationResult[i+1].start) || !fpEqual(segmentationTarget[i].end, segmentationTarget[i+1].start) || segmentationResult[i].text !== segmentationTarget[i].text){
+        if( !fpEqual(segmentationResult[i].end, segmentationResult[i+1].start) || !fpEqual(segmentationTarget[i].end, segmentationTarget[i+1].start) || segmentationResult[i].text.trim() !== segmentationTarget[i].text.trim()){
             console.error("Attempted to run error checking on non-matching segments:");
-            // console.log(segmentationResult[i]);
-            // console.log(segmentationResult[i+1]);
-            // console.log(segmentationTarget[i]);
-            // console.log(segmentationTarget[i+1]);
+            console.log(segmentationResult[i]);
+            console.log(segmentationResult[i+1]);
+            console.log(segmentationTarget[i]);
+            console.log(segmentationTarget[i+1]);
             return [];
         }
         else{

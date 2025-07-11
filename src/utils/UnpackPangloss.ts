@@ -50,3 +50,14 @@ export async function getProblemFromPangloss(xmlFilePath:string) :Promise<parsin
         targetSegments:segs
     })
 }
+
+export async function printAeneasFragmentFileTextFromPangloss(xmlFilePath:string){
+    const prob = await getProblemFromPangloss(xmlFilePath);
+
+    let result = prob.targetSegments.map(ts=>ts.text).reduce((allFrags, thisFrag, i)=>{
+        if(i == 0) return allFrags + thisFrag;
+        else return allFrags + "\n" + thisFrag;
+    }, "")
+
+    console.log(result);
+}
