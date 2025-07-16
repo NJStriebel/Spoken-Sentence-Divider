@@ -1,0 +1,5 @@
+f000001 0.000 3.100 "Abraham and Isaac returned home."
+f000002 3.100 6.880 "Some time later, sadness came."
+f000003 6.880 9.280 "Sarah died."
+f000004 9.280 12.240 "Abraham had lost his wife,"
+f000005 12.240 14.960 "and Isaac had lost his mother."

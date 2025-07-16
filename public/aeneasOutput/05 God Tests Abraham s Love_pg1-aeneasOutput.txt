@@ -1,0 +1,5 @@
+f000001 0.000 5.580 "“Take your son Isaac, and offer him as a burnt offering,” God commanded."
+f000002 5.580 7.440 "Offer Isaac?"
+f000003 7.440 9.600 "Sacrifice his son?"
+f000004 9.600 12.180 "That was hard for Abraham."
+f000005 12.180 14.680 "He loved his son very much."

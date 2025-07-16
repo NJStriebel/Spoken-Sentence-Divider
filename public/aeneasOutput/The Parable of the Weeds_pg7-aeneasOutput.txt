@@ -1,0 +1,8 @@
+f000001 0.440 1.400 "‘The weeds"
+f000002 1.400 3.240 "are the people of the evil one,"
+f000003 3.240 5.320 "and the enemy who sows them"
+f000004 5.320 6.800 "is the devil."
+f000005 6.800 8.120 "'The harvest"
+f000006 8.120 9.820 "is the end of the age,"
+f000007 9.820 11.320 "and the harvesters"
+f000008 11.320 12.520 "are angels.’"

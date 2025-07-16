@@ -7,7 +7,7 @@ type pauseMapping = {
     targetIndex?:number
 }
 
-//if given the pauses, return the number of splits where the target and the guess are within the same pause
+//return the number of splits where the target and the guess are within the same pause (given pauses are found with an algorithm)
 //otherwise, return the mean squared error
 export function evaluateSplits(guessRegions:TimedTextSegment[], targetRegions:TimedTextSegment[], pauses:TimedTextSegment[]=[]):number{
     if(pauses.length == 0){
@@ -52,4 +52,27 @@ export function evaluateSplits(guessRegions:TimedTextSegment[], targetRegions:Ti
     }
 
     return pauseMap.reduce((counter, nextVal)=>{return nextVal.guessIndex !== undefined && nextVal.targetIndex !== undefined ? counter+1 : counter}, 0);
+}
+
+export function evaluateSplitsGivenHandmadePauses(guessRegions:TimedTextSegment[], targetPauses:TimedTextSegment[]):number{
+    let correct = 0;
+    
+    let splitI = 0;
+    let pauseI = 0;
+
+    while(pauseI < targetPauses.length && splitI < guessRegions.length){
+        if(guessRegions[splitI].end >= targetPauses[pauseI].start && guessRegions[splitI].end <= targetPauses[pauseI].end){
+            correct++;
+            pauseI++;
+            splitI++;
+        }
+        else if(guessRegions[splitI].end < targetPauses[pauseI].start){
+            splitI++;
+        }
+        else if(guessRegions[splitI].end > targetPauses[pauseI].end){
+            pauseI++;
+        }
+    }
+
+    return correct;
 }

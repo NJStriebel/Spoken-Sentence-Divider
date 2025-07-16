@@ -1,0 +1,2 @@
+f000001 0.000 4.220 "One night God gave Abraham a strange command."
+f000002 4.220 10.360 "It was a test to see if Abraham loved his son Isaac more than he loved God."

@@ -1,0 +1,6 @@
+f000001 0.360 1.840 "When people are unkind"
+f000002 1.840 3.100 "and treat you badly,"
+f000003 3.100 4.580 "don't be nasty back."
+f000004 4.580 6.020 "Use calm words,"
+f000005 6.020 7.400 "not fists."
+f000006 7.400 10.440 "That is the best way to settle arguments."

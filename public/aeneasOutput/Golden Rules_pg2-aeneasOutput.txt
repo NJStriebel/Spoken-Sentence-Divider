@@ -1,0 +1,5 @@
+f000001 0.400 1.300 "Jesus said,"
+f000002 1.300 3.520 ""If somebody asks you to go one mile,"
+f000003 3.520 4.500 "go two.""
+f000004 4.500 7.380 "This means if somebody asks you to do something,"
+f000005 7.380 9.040 "do more than they ask!"

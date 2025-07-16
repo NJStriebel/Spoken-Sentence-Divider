@@ -1,0 +1,4 @@
+f000001 0.320 2.460 "Jesus sat down on the Mount of Olives"
+f000002 2.460 5.480 "and talked to the people about good rules to live by"
+f000003 5.480 7.160 "and ways to treat other people."
+f000004 7.160 10.440 "These are sometimes called the Golden Rules."

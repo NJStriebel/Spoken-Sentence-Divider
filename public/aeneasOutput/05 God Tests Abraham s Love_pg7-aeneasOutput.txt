@@ -1,0 +1,4 @@
+f000001 0.960 6.260 "Abraham tied Isaac up and placed his beloved son on the altar."
+f000002 6.260 10.400 "Was Abraham really going to obey God"
+f000003 10.400 13.460 "and sacrifice his dear Isaac,"
+f000004 13.460 15.200 "his only son?"

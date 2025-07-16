@@ -1,0 +1,6 @@
+f000001 0.360 1.760 "'Then God's people"
+f000002 1.760 3.640 "will shine like the sun"
+f000003 3.640 5.920 "in their Father's Kingdom."
+f000004 5.920 7.080 "'Listen,"
+f000005 7.080 7.580 "then,"
+f000006 7.580 9.240 "if you have ears!’"

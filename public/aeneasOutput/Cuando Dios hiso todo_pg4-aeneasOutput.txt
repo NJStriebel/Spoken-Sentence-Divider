@@ -1,0 +1,4 @@
+f000001 0.320 1.380 "Y fue la luz."
+f000002 1.380 3.960 "Y llamó Dios a la luz Día,"
+f000003 3.960 6.400 "y a las tinieblas llamó Noche."
+f000004 6.400 9.480 "Y fue la tarde y la mañana un día."

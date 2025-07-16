@@ -1,0 +1,3 @@
+f000001 0.280 1.540 "Jesus said,"
+f000002 1.540 4.600 "‘The Kingdom of Heaven is like a man"
+f000003 4.600 7.280 "who sowed good seed in his field.’"

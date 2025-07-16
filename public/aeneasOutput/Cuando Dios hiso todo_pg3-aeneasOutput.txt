@@ -1,0 +1,4 @@
+f000001 0.720 3.580 "Y la tierra estaba desordenada y vacía."
+f000002 3.580 7.640 "Y las tinieblas estaban sobre la faz del abismo."
+f000003 7.640 9.840 "Entonces Dios habló."
+f000004 9.840 11.360 "“Sea la luz.”"

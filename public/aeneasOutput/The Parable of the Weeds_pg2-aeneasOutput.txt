@@ -1,0 +1,4 @@
+f000001 0.480 2.240 "‘But while everyone was sleeping,"
+f000002 2.240 5.240 "his enemy came and sowed weed seeds"
+f000003 5.240 6.340 "among the wheat."
+f000004 6.340 8.600 "Then he went away.’"

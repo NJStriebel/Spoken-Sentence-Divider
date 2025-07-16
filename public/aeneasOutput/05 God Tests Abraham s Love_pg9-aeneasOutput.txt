@@ -1,0 +1,3 @@
+f000001 0.000 6.860 "Seeing a ram in the bushes, Abraham untied Isaac and sacrificed the ram instead."
+f000002 6.860 9.380 "Perhaps Isaac thought,"
+f000003 9.380 13.160 "“God did provide, just as my father said.”"

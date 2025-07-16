@@ -1,0 +1,5 @@
+f000001 0.000 4.400 "The two came to the exact place chosen by God."
+f000002 4.400 7.580 "There, Abraham built an altar"
+f000003 7.580 12.240 "and arranged the wood to burn the sacrifice before God."
+f000004 12.240 15.560 "Abraham had built many altars."
+f000005 15.560 20.480 "Surely this one was the hardest ever to build."

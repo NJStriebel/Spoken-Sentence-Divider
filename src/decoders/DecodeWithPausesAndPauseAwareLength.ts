@@ -20,7 +20,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
                 if(pauses[pauses.length-1].end == duration) pauses = pauses.slice(0, pauses.length-1);
             }
             catch(error){
-                console.error("Too few pauses were found to make pause-based sentence break assignments.\nDefaulting to text length.")
+                console.warn("Too few pauses were found to make pause-based sentence break assignments.\nDefaulting to text length.")
                 console.log( quietestNearby(textLength(initialSegments, audioData, duration), audioData, duration) );
             }
 
@@ -28,7 +28,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
             const textLengthBreaks = pauseAwareTextLength(initialSegments, audioData, duration);
 
             if(pauses.length < textLengthBreaks.length-1){
-                console.error(`found fewer pauses (${pauses.length}) than needed (${textLengthBreaks.length-1}) to assign one to each phrase break.\nDefaulting to text length`);
+                console.warn(`found fewer pauses (${pauses.length}) than needed (${textLengthBreaks.length-1}) to assign one to each phrase break.\nDefaulting to text length`);
                 return quietestNearby(textLength(initialSegments, audioData, duration), audioData, duration);
             }
 

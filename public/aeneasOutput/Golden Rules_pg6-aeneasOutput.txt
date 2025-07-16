@@ -1,0 +1,5 @@
+f000001 0.320 1.360 "Treat other people"
+f000002 1.360 3.460 "the way you would like them to treat you."
+f000003 3.460 4.640 "Help others"
+f000004 4.640 6.080 "even when you don't have to,"
+f000005 6.080 7.920 "just like Jesus did."

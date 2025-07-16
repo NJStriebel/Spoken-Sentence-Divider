@@ -1,0 +1,6 @@
+f000001 0.400 3.600 "Jesus treated everyone with kindness and respect,"
+f000002 3.600 4.440 "old or young,"
+f000003 4.440 5.800 "rich or poor,"
+f000004 5.800 7.120 "sick or well,"
+f000005 7.120 10.240 "and people of all different cultures."
+f000006 10.240 13.040 "I want to be like Jesus too."

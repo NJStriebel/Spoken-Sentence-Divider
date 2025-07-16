@@ -1,0 +1,6 @@
+f000001 0.240 1.040 "“STOP!”"
+f000002 1.040 3.480 "the Angel of the LORD shouted."
+f000003 3.480 6.720 "“Now I know you fear God."
+f000004 6.720 8.920 "You have not held back your son,"
+f000005 8.920 10.220 "your only son,"
+f000006 10.220 11.200 "from Me.”"

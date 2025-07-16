@@ -1,0 +1,6 @@
+f000001 0.280 1.440 "A large crowd"
+f000002 1.440 2.700 "gathered by the shore"
+f000003 2.700 5.300 "and Jesus taught them from a boat."
+f000004 5.300 7.360 "He told them parables"
+f000005 7.360 9.000 "to help them understand"
+f000006 9.000 11.400 "what the Kingdom of Heaven is like."

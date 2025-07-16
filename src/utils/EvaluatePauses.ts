@@ -19,7 +19,7 @@ export function evaluatePauses(pauseIntervals:TimedTextSegment[], targetRegions:
     let regionI = 0;
 
     while(pauseI < pauseIntervals.length && regionI < targetRegions.length-1){
-        if(pauseIntervals[pauseI].start < targetRegions[regionI].end && pauseIntervals[pauseI].end > targetRegions[regionI].end){
+        if(pauseIntervals[pauseI].start <= targetRegions[regionI].end && pauseIntervals[pauseI].end >= targetRegions[regionI].end){
             numCorrectIdentified++;
             pauseI++;
             regionI++;

@@ -46,6 +46,42 @@ function clusterWithKmeansKis2(audioData:number[], clusteringIterations:number):
     }
 }
 
+//Practically every audio file has a ton of samples that are practically zero. If we ignore those, our K-means might do a better job of finding the binormal distribution
+function clusterWithKmeansIgnoreZeros(audioData:number[], clusteringIterations:number, minClusterAffectingPower:number):clusterResults{
+    const powers = audioData.map((dataPoint)=>{return Math.log10(Math.abs(dataPoint)+0.000000000001)});
+
+    let quietCentroid = Math.min(...randomSample(powers, 10));
+    let speechCentroid = Math.max(...randomSample(powers, 10));
+    let quietCluster = [];
+    let speechCluster = [];
+
+    for(let i = 0; i < clusteringIterations; i++){
+        quietCluster = [];
+        speechCluster = [];
+
+        for(const point of powers){
+            if(Math.abs(point) < minClusterAffectingPower){
+                continue;
+            }else if(Math.abs(quietCentroid - point) < Math.abs(speechCentroid - point)){
+                quietCluster.push(point);
+            }else{
+                speechCluster.push(point);
+            }
+        }
+
+        quietCentroid = quietCluster.reduce((total, next) => total+next) / quietCluster.length;
+        speechCentroid = speechCluster.reduce((total, next) => total+next) / speechCluster.length;
+    }    
+    
+    const quietStdDev = Math.sqrt(quietCluster.map(dp=>(quietCentroid-dp)**2).reduce((sum, thisDeviation)=>sum+thisDeviation)/quietCluster.length)
+    const speechStdDev = Math.sqrt(speechCluster.map(dp=>(speechCentroid-dp)**2).reduce((sum, thisDeviation)=>sum+thisDeviation)/speechCluster.length)
+
+    return {
+        quietCluster: new GMMcluster(quietCentroid, quietStdDev, quietCluster.length/powers.length, quietCluster.map(val=> {return{value:val, responsibility:0}})),
+        speechCluster: new GMMcluster(speechCentroid, speechStdDev, speechCluster.length/powers.length, speechCluster.map(val=> {return{value:val, responsibility:0}}))
+    }
+}
+
 function clusterWithKmeans(audioData:number[], k:number, clusteringIterations:number):GMMcluster[]{
     const powers = audioData.map((dataPoint)=>{return Math.log10(Math.abs(dataPoint)+0.000000000001)});
 
@@ -95,7 +131,7 @@ function clusterWithKmeans(audioData:number[], k:number, clusteringIterations:nu
     })
 }
 
-function clusterWithKmeansAdjustToPeak(audioData:number[], k:number, clusteringIterations:number, maxCentroidMovePercent=1):GMMcluster[]{
+function clusterWithKmeansAdjustToPeak(audioData:number[], k:number, clusteringIterations:number, maxCentroidMovePercent=4):GMMcluster[]{
     const numBins = 100;
     const powerClusters = clusterWithKmeans(audioData, k, clusteringIterations);
     const powers = audioData.map((amp)=>{return Math.log10(amp+0.000000000001)})
@@ -128,40 +164,74 @@ function clusterWithKmeansAdjustToPeak(audioData:number[], k:number, clusteringI
     return powerClusters;
 }
 
-//Practically every audio file has a ton of samples that are practically zero. If we ignore those, our K-means might do a better job of finding the binormal distribution
-function clusterWithKmeansIgnoreZeros(audioData:number[], clusteringIterations:number, minClusterAffectingPower:number):clusterResults{
-    const powers = audioData.map((dataPoint)=>{return Math.log10(Math.abs(dataPoint)+0.000000000001)});
+function clusterByHistogramLocalMaxima(audioData:number[], numBins:number):GMMcluster[]{
+    const powers = audioData.map((amp)=>{return Math.log10(amp+0.000000000001)})
 
-    let quietCentroid = Math.min(...randomSample(powers, 10));
-    let speechCentroid = Math.max(...randomSample(powers, 10));
-    let quietCluster = [];
-    let speechCluster = [];
+    let min :number = 1;
+    let max :number = -100;
 
-    for(let i = 0; i < clusteringIterations; i++){
-        quietCluster = [];
-        speechCluster = [];
-
-        for(const point of powers){
-            if(Math.abs(point) < minClusterAffectingPower){
-                continue;
-            }else if(Math.abs(quietCentroid - point) < Math.abs(speechCentroid - point)){
-                quietCluster.push(point);
-            }else{
-                speechCluster.push(point);
-            }
-        }
-
-        quietCentroid = quietCluster.reduce((total, next) => total+next) / quietCluster.length;
-        speechCentroid = speechCluster.reduce((total, next) => total+next) / speechCluster.length;
-    }    
-    
-    const quietStdDev = Math.sqrt(quietCluster.map(dp=>(quietCentroid-dp)**2).reduce((sum, thisDeviation)=>sum+thisDeviation)/quietCluster.length)
-    const speechStdDev = Math.sqrt(speechCluster.map(dp=>(speechCentroid-dp)**2).reduce((sum, thisDeviation)=>sum+thisDeviation)/speechCluster.length)
-
-    return {
-        quietCluster: new GMMcluster(quietCentroid, quietStdDev, quietCluster.length/powers.length, quietCluster.map(val=> {return{value:val, responsibility:0}})),
-        speechCluster: new GMMcluster(speechCentroid, speechStdDev, speechCluster.length/powers.length, speechCluster.map(val=> {return{value:val, responsibility:0}}))
+    for(const amp of powers){
+        if(amp > max) max = amp;
+        if(amp < min) min = amp;
     }
+
+    const bins = binData(powers, min, max, numBins);
+    const localMaxima = []; //the indices of local maxima
+
+    let peakStart = -1; //equals -1 unless we're on a peak that has multiple bins with equal numbers of samples in each
+
+    for(let i = 1; i < bins.length-1; i++){
+        if(bins[i] > bins[i-1] && bins[i] > bins[i+1]){
+            localMaxima.push(i);
+            peakStart = -1;
+        }
+        else if (bins[i] > bins[i-1] && bins[i] == bins[i+1]){
+            peakStart = i;
+        }
+        else if(bins[i] > bins[i+1] && peakStart != -1){
+            localMaxima.push(Math.floor( (i + peakStart)/2 ));
+            peakStart = -1
+        }
+    }
+
+    return localMaxima.map((localMaxIndex)=>new GMMcluster(min + localMaxIndex * (max-min) / numBins, 0, 0));
+}
+
+function clusterByHistogramLocalMaximaIgnoreZeroes(audioData:number[], numBins:number):GMMcluster[]{
+    const powers = audioData.map((amp)=>{return Math.log10(amp+0.000000000001)})
+
+    let min :number = 1;
+    let max :number = -100;
+
+    for(const amp of powers){
+        if(amp > max) max = amp;
+        if(amp < min) min = amp;
+    }
+
+    const bins = binData(powers, min, max, numBins).slice(1); //that slice removes the lowest bin
+    const localMaxima = []; //the indices of local maxima
+
+    let peakStart = -1; //equals -1 unless we're on a peak that has multiple bins with equal numbers of samples in each
+
+    for(let i = 1; i < bins.length-1; i++){
+        if(bins[i] > bins[i-1] && bins[i] > bins[i+1]){
+            localMaxima.push(i);
+            peakStart = -1;
+        }
+        else if (bins[i] > bins[i-1] && bins[i] == bins[i+1]){
+            peakStart = i;
+        }
+        else if(bins[i] > bins[i+1] && peakStart != -1){
+            localMaxima.push(Math.floor( (i + peakStart)/2 ));
+            peakStart = -1
+        }
+    }
+
+    //order so that the tallest peaks come first. The speech and silence centroids will be based on the two tallest peaks.
+    localMaxima.sort((indexA, indexB)=>bins[indexB] - bins[indexA]);
+
+    //return the power of the two tallest peaks
+    return localMaxima.map((localMaxIndex)=>new GMMcluster(min + localMaxIndex * (max-min) / bins.length, 0, 0)).slice(0, 2);
 }
 
 type GMMdataPoint = {
@@ -254,9 +324,10 @@ function printHistogramToProveBimodalness(amplitudes:number[], numBins:number){
     console.log(histogram);
 }
 
-function printHistogramWithMarkers(amplitudes:number[], numBins:number, markerAmps:number[]){
+function printHistogramWithMarkers(amplitudes:number[], numBins:number, thresholdAmp:number, markerAmps:number[]){
     const powers = amplitudes.map((amp)=>{return Math.log10(amp+0.000000000001)});
     const markerPowers = markerAmps.map(amp=>Math.log10(amp+0.000000000001));
+    const thresholdPower = Math.log10(thresholdAmp + 0.000000000001);
     
     let min :number = Infinity;
     let max :number = -Infinity;
@@ -270,11 +341,16 @@ function printHistogramWithMarkers(amplitudes:number[], numBins:number, markerAm
 
     const bins = binData(powers, min, max, numBins);
 
-    const markerIs = markerPowers.map(mp=>Math.floor(numBins * (mp-min)/(max-min)));
+    const markerIs = markerPowers.map(mp=>Math.ceil(numBins * (mp-min)/(max-min)));
+    const thresholdI = Math.ceil(numBins * (thresholdPower-min)/(max-min));
 
     const maxBinSize = Math.max(...bins);
     let histogram:string = ""
     for(let i=0; i < bins.length; i++){
+        if(thresholdI == i){
+            histogram += "######################################################################################\n";
+        }
+
         if(markerIs.indexOf(i) != -1){
             histogram += "**********************************************************************\n"
         }
@@ -333,7 +409,7 @@ function getThreshold(audioData:number[], iterations:number, k:number, fractionO
     if(speechThreshold === undefined){
         if(k<2) k=2;
         // console.log("calculating threshold")
-        const powerClusters = clusterWithKmeansAdjustToPeak(audioData, k, iterations);
+        const powerClusters = clusterWithKmeansAdjustToPeak(audioData, k, iterations, 5);
         powerClusters.sort((a,b)=>b.centroid-a.centroid);
 
         //cluster 1 is speech, cluster 0 is background noise
@@ -347,7 +423,7 @@ function getThreshold(audioData:number[], iterations:number, k:number, fractionO
 
         speechThreshold = 10**powerThreshold;
         // console.log(`Threshold found at ${speechThreshold}\ncentroids are ${10**powerClusters[0].centroid} and ${10**powerClusters[1].centroid}`)
-        //printHistogramWithMarkers(audioData, 100, [speechThreshold, 10**powerClusters[0].centroid, 10**powerClusters[1].centroid]);
+        // printHistogramWithMarkers(audioData, 100, speechThreshold, powerClusters.map((clus)=>10**clus.centroid));
     }
     else{
         // console.log(`returning pre-computed Threshold: ${speechThreshold}`)

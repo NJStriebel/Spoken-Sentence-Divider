@@ -2,7 +2,7 @@ import WaveSurfer from "wavesurfer.js";
 import RegionsPlugin from "wavesurfer.js/dist/plugins/regions.js";
 import type { TimedTextSegment } from "./TimedTextSegment";
 
-export async function makeWaveSurfer(containerID:string, soundfile:string, segments: TimedTextSegment[], highlightPauses:boolean){
+export async function makeWaveSurfer(containerID:string, soundfile:string, breakSegments?: TimedTextSegment[], pauseSegments?:TimedTextSegment[]){
     const cont = document.getElementById(containerID)!;
 
     const rp = RegionsPlugin.create();
@@ -12,13 +12,14 @@ export async function makeWaveSurfer(containerID:string, soundfile:string, segme
         cursorWidth:1,
         waveColor: "#0000ff",
         progressColor: "#0000ff",
-        plugins:[rp]
+        plugins:[rp],
+        minPxPerSec:30
     });
     const waiter = ws.load(soundfile);
 
     ws.on("ready", ()=>{
-        if(highlightPauses) highLightRegions(rp, segments);
-        else addBreaks(rp, segments, 0.05);
+        if(pauseSegments != undefined) highLightRegions(rp, pauseSegments);
+        if(breakSegments != undefined) addBreaks(rp, breakSegments, 0.05);
     });
 
     cont.addEventListener("click", ()=>ws.playPause());
@@ -47,7 +48,7 @@ function highLightRegions(rp: RegionsPlugin, segments:TimedTextSegment[]){
             end:   segments[i].end,
             drag:false,
             resize:false,
-            color: "#fff700"
+            color: "#fff700aa"
         });
     }
 }

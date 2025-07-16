@@ -1,0 +1,5 @@
+f000001 0.600 1.960 "En el segundo día,"
+f000002 1.960 6.820 "Dios ordenó los océanos, mares y lagos debajo del Cielo."
+f000003 6.820 8.860 "En el tercer día, Dios dijo,"
+f000004 8.860 10.960 "“Que aparezca la tierra seca.”"
+f000005 10.960 12.200 "Y así fue."

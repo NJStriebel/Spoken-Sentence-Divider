@@ -1,0 +1,6 @@
+f000001 0.320 1.880 "¿Quién nos hizo?"
+f000002 1.880 7.080 "La Biblia, la Palabra de Dios, nos dice cómo comenzó la raza humana."
+f000003 7.080 12.240 "Hace mucho tiempo, Dios hizo el primer hombre, y le llamó Adán."
+f000004 12.240 16.020 "Dios hizo a Adán del polvo de la        tierra."
+f000005 16.020 20.180 "Cuando Dios le sopló vida a Adán, vivió."
+f000006 20.180 24.200 "Se encontró           en un hermoso huerto llamado Edén."

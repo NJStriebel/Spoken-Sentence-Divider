@@ -1,0 +1,6 @@
+f000001 0.440 1.820 "‘When the wheat sprouted,"
+f000002 1.820 4.200 "the weeds also appeared."
+f000003 4.200 6.820 "The owner’s servants asked him,"
+f000004 6.820 9.400 "“Sir, didn’t you sow"
+f000005 9.400 11.260 "good seed in your field?"
+f000006 11.260 14.080 "Where then did the weeds come from?”’"

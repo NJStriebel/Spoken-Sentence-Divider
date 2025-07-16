@@ -1,0 +1,5 @@
+f000001 1.640 3.340 "The servant asked God for a sign."
+f000002 3.340 9.820 "“Let the girl who offers water for my camels be the right one for Isaac.”"
+f000003 9.820 14.560 "Immediately Rebekah offered to give them water."
+f000004 14.560 17.740 "She was one of Abraham's relatives."
+f000005 17.740 21.880 "The servant knew God had answered his prayer."
