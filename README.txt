@@ -2,4 +2,4 @@ A development and testing environment for algorithms that identify breaks betwee
 
 Originally developed for Bloom Desktop (https://github.com/BloomBooks/BloomDesktop)
 
-Change the script element in index.html to point to a different file in ./src/test to run different test cases.
+Change the script element in index.html to point to a different file in ./src/entryPoints to run different test cases.
