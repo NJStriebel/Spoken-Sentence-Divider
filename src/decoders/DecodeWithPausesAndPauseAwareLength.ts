@@ -25,7 +25,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
             }
 
             //relies on getThreshold, which does not depend on min pause length or pause join parameters
-            const textLengthBreaks = textLength(initialSegments, audioData, duration);
+            const textLengthBreaks = pauseAwareTextLength(initialSegments, audioData, duration);
 
             if(pauses.length < textLengthBreaks.length-1){
                 console.warn(`found fewer pauses (${pauses.length}) than needed (${textLengthBreaks.length-1}) to assign one to each phrase break.\nDefaulting to text length`);

@@ -1,12 +1,11 @@
 import { runAndDisplay } from "../utils/ProcessExample";
 import { textLength } from "../decoders/DecodeWithTextLength";
 import type { TimedTextSegment } from "../utils/TimedTextSegment";
-import { makeQuietestNearby, makeQuietestNearbyByInterval, quietestNearby } from "../decoders/DecodeWithQuietestNearby";
 import type { decodingAlgorithm } from "../utils/ProcessExample";
 import { makePauseFinder } from "../utils/FindPauses";
-import { makePausesAndPauseAwareLength } from "../decoders/DecodeWithPausesAndPauseAwareLength";
-import { makePauseAwareTextLength } from "../decoders/PauseAwareTextLength";
 import { getProblemsFromHandAlignedBloomPub } from "../utils/GetTargetPausesFromHandAligned";
+import { makePausesAndTextLength } from "../decoders/DecodeWithPausesAndLength";
+import { makeQuietestNearbyByInterval } from "../decoders/DecodeWithQuietestNearby";
 
 const BOOK_NAME = "A donkey speaks to Balaam";
 const PAGE_INDEX = 8;
@@ -35,7 +34,7 @@ const pauseFinder:decodingAlgorithm = makePauseFinder(PAUSE_DURATION_MIN, MIN_GA
 
 const algorithms = [
     pauseFinder,
-    {name:"algorithm-under-test", decode:makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_POWER).decode, findPauses:pauseFinder.findPauses!} as decodingAlgorithm,
+    {name:"algorithm-under-test", decode:makePausesAndTextLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_POWER), findPauses:pauseFinder.findPauses!} as decodingAlgorithm,
     {name:"text-length", decode:textLength},
     {name:"quietest-max-nearby-adjustment", decode:(is:TimedTextSegment[], ad:number[], d:number)=>makeQuietestNearbyByInterval(0.16, .40)(textLength(is, ad, d), ad, d), findPauses:pauseFinder.findPauses!} as decodingAlgorithm,
     //{name:"aeneas", decode:(is, ad, d)=>aeneasSegs, findPauses:pauseFinder.findPauses} as decodingAlgorithm

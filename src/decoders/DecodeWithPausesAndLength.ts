@@ -4,8 +4,9 @@ import { textLength } from "./DecodeWithTextLength";
 
 //the idea of this algorithm is to map each sentence break and pause to a level of confidence that they match
 //we'll keep that mapping sorted by confidence level, then apply the matches in order of confidence level, skipping pauses that have already been assigned
-export function makePausesAndTextLength(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, fractionOfSpeech:number){
+export function makePausesAndTextLength(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, fractionOfSpeech:number, distanceFactor:number, distancePower:number, pauseWidthPower:number){
     const pauseFinder = makePauseFinder(minPauseDuration, minGapPreDrop, minGapPostDrop, kMeansIterations, k, fractionOfSpeech);
+    const confidenceMetric = makeConfidenceMetric(distanceFactor, distancePower, pauseWidthPower)
 
     return (initialSegments: TimedTextSegment[], audioData: number[], duration: number)=>{
         const textLengthBreaks = textLength(initialSegments, audioData, duration);
@@ -49,13 +50,15 @@ export function makePausesAndTextLength(minPauseDuration:number, minGapPreDrop:n
 
         return textLengthBreaks;
     }
+}
 
-    //to begin with, we'll use the width of the pause minus the square of the distance between pause and split
-    function confidenceMetric(pause:TimedTextSegment, split:TimedTextSegment):number{
+//to begin with, we'll use the width of the pause minus the square of the distance between pause and split
+function makeConfidenceMetric(distanceFactor:number, distancePower:number, pauseWidthPower:number):Function{
+    return (pause:TimedTextSegment, split:TimedTextSegment)=>{
         const splitPoint = split.end;
         const pausePoint = pause.start + (pause.end-pause.start)/2
 
-        return (pause.end - pause.start)*10 - (pausePoint-splitPoint)**2;
+        return (pause.end - pause.start)**pauseWidthPower + distanceFactor*(pausePoint-splitPoint)**distancePower;
     }
 }
 
