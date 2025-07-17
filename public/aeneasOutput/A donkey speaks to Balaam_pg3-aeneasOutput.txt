@@ -1,0 +1,5 @@
+f000001 1.120 3.160 "That night God spoke to Balaam in a dream."
+f000002 3.160 4.240 "He said,"
+f000003 4.240 5.600 "“Don’t follow them!"
+f000004 5.600 7.600 "You must not curse the Israelites,"
+f000005 7.600 9.040 "for I have blessed them!”"

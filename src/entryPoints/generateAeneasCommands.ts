@@ -2,31 +2,35 @@ import { getProblemsFromHandAlignedBloomPub } from "../utils/GetTargetPausesFrom
 import { getProblemFromBloom, type parsingProblem } from "../utils/UnpackBloomFormat";
 import { printAeneasFragmentFileTextFromPangloss } from "../utils/UnpackPangloss";
 
-const trainingSet1FileNames = [
-    "conte_01_l_heritier", 
-    "crdo-CKB_WOMEN", 
-    "crdo-LAG-hyena", 
-    "crdo-NBC_MERMAID",
-    "crdo-NGE_FOURMI", 
-    "crdo-SVM_LIEVRE",
-    "crdo-WLS_UVEAC1FB_1",
-    "IKE_KAUTJAJUK_STORY",
-    "ike_lizzie_niviaxie",
-    "lamo-s-0001"
-]
+// const trainingSet1FileNames = [
+//     "conte_01_l_heritier", 
+//     "crdo-CKB_WOMEN", 
+//     "crdo-LAG-hyena", 
+//     "crdo-NBC_MERMAID",
+//     "crdo-NGE_FOURMI", 
+//     "crdo-SVM_LIEVRE",
+//     "crdo-WLS_UVEAC1FB_1",
+//     "IKE_KAUTJAJUK_STORY",
+//     "ike_lizzie_niviaxie",
+//     "lamo-s-0001"
+// ]
 
-const trainingSet2FileNames = [
-    "Baby Moses",
-    "Golden Rules - Sermon on the Mount",
-    "Jesus Heals the Ten Lepers",
-    "The Easter Story",
-    "The Parable of the Weeds"
-]
+// const trainingSet2FileNames = [
+//     "Baby Moses",
+//     "Golden Rules - Sermon on the Mount",
+//     "Jesus Heals the Ten Lepers",
+//     "The Easter Story",
+//     "The Parable of the Weeds"
+// ]
 
 const handAlignedBookNames = [
-    "Cuando Dios hiso todo",
-    "Golden Rules",
-    "05 God Tests Abraham s Love"
+    //"Cuando Dios hiso todo",
+    //"Golden Rules",
+    //"05 God Tests Abraham s Love",
+    //"Bell in cat s neck",
+    //"Shaka and mazi",
+    "Bangladesh",
+    "A donkey speaks to Balaam"
 ]
 
 const inDirectory = "C:/Users/natha/Documents/Bloom_Internship/SpokenSentenceDivider/public"

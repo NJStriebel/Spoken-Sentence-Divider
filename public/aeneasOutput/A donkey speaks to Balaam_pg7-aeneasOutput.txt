@@ -1,0 +1,5 @@
+f000001 0.200 1.860 "While Balaam was riding,"
+f000002 1.860 5.800 "his donkey suddenly saw the angel of the Lord standing in the road"
+f000003 5.800 7.280 "holding a sword."
+f000004 7.280 9.600 "She ran off the road into a field,"
+f000005 9.600 12.280 "but Balaam beat her back onto the road."

@@ -1,0 +1,8 @@
+f000001 0.240 1.980 "Balaam shouted in reply,"
+f000002 1.980 4.220 "“You’ve made me look like an idiot!"
+f000003 4.220 5.880 "If I had a sword with me,"
+f000004 5.880 8.140 "I’d kill you right now!”"
+f000005 8.140 11.800 "Then God opened Balaam’s eyes to see the angel"
+f000006 11.800 13.360 "who then said to him,"
+f000007 13.360 14.880 "“Go with the men,"
+f000008 14.880 17.680 "but say only what I tell you to say.”"

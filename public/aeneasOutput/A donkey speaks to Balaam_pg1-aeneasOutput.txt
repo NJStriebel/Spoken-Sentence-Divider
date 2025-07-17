@@ -1,0 +1,7 @@
+f000001 1.200 1.700 "One day,"
+f000002 1.700 2.740 "Balek, the King of Moab,"
+f000003 2.740 5.920 "saw the Israelite people camped near his country."
+f000004 5.920 8.820 "The people of Moab were terrified and said,"
+f000005 8.820 11.160 "“There are so many of these people."
+f000006 11.160 14.100 "They will destroy everything and kill us all!”"
+f000007 14.100 17.520 "So King Balek sent messengers to Balaam."

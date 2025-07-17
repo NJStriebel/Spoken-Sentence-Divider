@@ -6,13 +6,13 @@ import { makePauseAwareTextLength } from "./PauseAwareTextLength";
 
 //the idea of this algorithm is to map each sentence break and pause to a level of confidence that they match
 //we'll keep that mapping sorted by confidence level, then apply the matches in order of confidence level, skipping pauses that have already been assigned
-export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, fractionOfSpeech:number, distanceFactor:number, distancePower:number, pauseWidthFactor:number, pauseWidthPower:number){
-    const confidence = makeConfidenceMetric(distanceFactor, distancePower, pauseWidthFactor, pauseWidthPower);
+export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPreDrop:number, minGapPostDrop:number, kMeansIterations:number, k:number, fractionOfSpeech:number, distanceFactor:number, distancePower:number, pauseWidthPower:number){
+    const confidence = makeConfidenceMetric(distanceFactor, distancePower, pauseWidthPower);
     const pauseFinder = makePauseFinder(minPauseDuration, minGapPreDrop, minGapPostDrop, kMeansIterations, k, fractionOfSpeech).findPauses!;
     const pauseAwareTextLength = makePauseAwareTextLength(kMeansIterations, k, fractionOfSpeech);
 
     return {
-        name: `pauses-and-pause-aware-length: df-${distanceFactor} dp-${distancePower} pwf-${pauseWidthFactor} pwp-${pauseWidthPower}`,
+        name: `pauses-and-pause-aware-length: df-${distanceFactor} dp-${distancePower} pwp-${pauseWidthPower}`,
         decode: (initialSegments: TimedTextSegment[], audioData: number[], duration: number)=>{
             let pauses = pauseFinder(audioData, duration);
             try{
@@ -25,7 +25,7 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
             }
 
             //relies on getThreshold, which does not depend on min pause length or pause join parameters
-            const textLengthBreaks = pauseAwareTextLength(initialSegments, audioData, duration);
+            const textLengthBreaks = textLength(initialSegments, audioData, duration);
 
             if(pauses.length < textLengthBreaks.length-1){
                 console.warn(`found fewer pauses (${pauses.length}) than needed (${textLengthBreaks.length-1}) to assign one to each phrase break.\nDefaulting to text length`);
@@ -81,12 +81,12 @@ export function makePausesAndPauseAwareLength(minPauseDuration:number, minGapPre
 }
 
 //to begin with, we'll use the width of the pause minus the square of the distance between pause and split
-function makeConfidenceMetric(distanceFactor:number, distancePower:number, pauseWidthFactor:number, pauseWidthPower:number):Function{
+function makeConfidenceMetric(distanceFactor:number, distancePower:number, pauseWidthPower:number):Function{
     return (pause:TimedTextSegment, split:TimedTextSegment)=>{
         const splitPoint = split.end;
         const pausePoint = pause.start + (pause.end-pause.start)/2
 
-        return pauseWidthFactor*(pause.end - pause.start)**pauseWidthPower + distanceFactor*(pausePoint-splitPoint)**distancePower;
+        return (pause.end - pause.start)**pauseWidthPower + distanceFactor*(pausePoint-splitPoint)**distancePower;
     }
 }
 

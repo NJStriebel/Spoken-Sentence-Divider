@@ -1,0 +1,5 @@
+f000001 1.840 2.000 "Balaam replied,"
+f000002 2.000 4.120 "“The Israelites are as strong as lions."
+f000003 4.120 6.480 "They will defeat your country in war.”"
+f000004 6.480 8.680 "Then he went back home."
+f000005 8.680 13.440 "He was not given the money or fame that King Balek had promised."

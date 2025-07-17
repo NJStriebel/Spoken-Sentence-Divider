@@ -1,0 +1,4 @@
+f000001 0.000 2.280 "The next morning Balaam rode his donkey"
+f000002 2.280 4.020 "and started going to Moab."
+f000003 4.020 6.120 "But God was angry with Balaam"
+f000004 6.120 9.400 "because he was only thinking of the money he would get."

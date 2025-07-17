@@ -1,0 +1,4 @@
+f000001 0.280 1.240 "Many years ago,"
+f000002 1.240 3.100 "there was a prophet called Balaam."
+f000003 3.100 5.320 "He expected people to pay him"
+f000004 5.320 6.920 "for speaking the word of God."

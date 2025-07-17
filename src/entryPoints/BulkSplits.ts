@@ -1,19 +1,22 @@
 import { makePausesAndPauseAwareLength } from "../decoders/DecodeWithPausesAndPauseAwareLength";
-import { quietestNearby } from "../decoders/DecodeWithQuietestNearby";
+import { makeQuietestNearbyByInterval } from "../decoders/DecodeWithQuietestNearby";
 import { textLength } from "../decoders/DecodeWithTextLength";
-import { errorsOnSegmentation } from "../utils/ErrorCalc";
 import { makePauseFinder } from "../utils/FindPauses";
 import { getProblemsFromHandAlignedBloomPub } from "../utils/GetTargetPausesFromHandAligned";
 import { runWithoutDisplay, type decodeResult, type decodingAlgorithm } from "../utils/ProcessExample";
-import { getProblemFromBloom, type parsingProblem } from "../utils/UnpackBloomFormat";
 import { getProblemFromPangloss } from "../utils/UnpackPangloss";
+import type { parsingProblem } from "../utils/UnpackBloomFormat";
 
 console.log("running bulk splits...");
 
 const bookNames:string[] = [
     "Cuando Dios hiso todo",
     "Golden Rules",
-    "05 God Tests Abraham s Love"
+    "05 God Tests Abraham s Love",
+    "Bell in cat s neck",
+    "Shaka and mazi",
+    "A donkey speaks to Balaam",
+    "Bangladesh"
 ];
 
 const panglossFiles:string[] = [
@@ -33,17 +36,20 @@ const K_MEANS_ITERATIONS=10;
 const K = 3;
 
 //determines where the threshold is placed. 1/4 means 25% of the way from the background noise centroid to the speech centroid.
-const FRACTION_OF_SPEECH = 1
+const FRACTION_OF_SPEECH = 0.75
 
 //min gap refers to the smallest gap that can exist between two pauses without it being joined
-const MIN_GAP_PRE_DROP = 0.001;
-const PAUSE_DURATION_MIN = 0.05;
+const MIN_GAP_PRE_DROP = 0.0001;
+const PAUSE_DURATION_MIN = 0.3;
 const MIN_GAP_POST_DROP = 0.05;
 
 const DISTANCE_FACTOR = -0.05;
-const PAUSE_LENGTH_FACTOR = 1; //only matters relative to distance factor. Remove in final form.
 const DISTANCE_POWER = 2;
-const PAUSE_LENGTH_POWER = .1;
+const PAUSE_LENGTH_POWER = 1;
+
+// parameters for making a version of John's original algorithm
+const BASELINE_INTERVAL = 0.16;
+const BASELINE_SLOP_PERCENT = .4;
 
 const problems = [];
 
@@ -53,6 +59,8 @@ for(const bookPath of bookNames){
         problems.push(prob);
     }
 }
+
+console.log(problems)
 
 for(const pfPath of panglossFiles){
     problems.push(await getProblemFromPangloss(pfPath));
@@ -80,13 +88,13 @@ const pauseFinder = makePauseFinder(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GA
 
 const algorithm :decodingAlgorithm = {
     name:"test-alg",
-    decode: makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_FACTOR, PAUSE_LENGTH_POWER).decode,
+    decode: makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_POWER).decode,
     findPauses: pauseFinder
 }
 
 const baseLineAlg : decodingAlgorithm = {
     name:"baseline",
-    decode: (is, ad, d) => quietestNearby(textLength(is, ad, d), ad, d),
+    decode: (is, ad, d) => makeQuietestNearbyByInterval(BASELINE_INTERVAL, BASELINE_SLOP_PERCENT)(textLength(is, ad, d), ad, d),
     findPauses: pauseFinder
 }
 
@@ -99,10 +107,10 @@ async function onePage(prob: parsingProblem, on:number, of:number):Promise<pageR
     console.log(`Start processing ${on}/${of}`)
     const result = await runWithoutDisplay(prob, algorithm) as decodeResult;
     console.log(`ran main algorithm on problem ${on}/${of} - scored ${result.correct}/${result.outOf}`);
-    const baseline = await runWithoutDisplay(prob, baseLineAlg) as decodeResult;
-    console.log(`ran baseline on problem ${on}/${of} - scored ${baseline.correct}/${baseline.outOf}`);
+    // const baseline = await runWithoutDisplay(prob, baseLineAlg) as decodeResult;
+    // console.log(`ran baseline on problem ${on}/${of} - scored ${baseline.correct}/${baseline.outOf}`);
 
-    return {result:result, baseline:baseline} as pageResult;
+    return {result:result, /*baseline:baseline*/} as pageResult;
 }
 
 const results: Promise<pageResult>[] = [];
@@ -113,9 +121,7 @@ for(const prob of problems){
 }
 
 let perfectPages = 0;
-let baselinePerfectPages = 0;
-
-console.log(problems)
+// let baselinePerfectPages = 0;
 
 i = 1;
 for(const output of results){
@@ -128,14 +134,14 @@ for(const output of results){
     aggregateResult.adjustedMSEs.push(thisPage.result.mse! * thisPage.result.outOf!);
     if(thisPage.result.correct! === thisPage.result.outOf!) perfectPages++;
 
-    aggregateBaseline.correct! += thisPage.baseline.correct!;
-    aggregateBaseline.outOf! += thisPage.baseline.outOf!;
-    aggregateBaseline.adjustedMSEs.push(thisPage.baseline.mse! * thisPage.baseline.outOf!);
-    if(thisPage.baseline.correct! == thisPage.baseline.outOf!) baselinePerfectPages++;
+    // aggregateBaseline.correct! += thisPage.baseline.correct!;
+    // aggregateBaseline.outOf! += thisPage.baseline.outOf!;
+    // aggregateBaseline.adjustedMSEs.push(thisPage.baseline.mse! * thisPage.baseline.outOf!);
+    // if(thisPage.baseline.correct! == thisPage.baseline.outOf!) baselinePerfectPages++;
 }
 
 const resultMSE = aggregateResult.adjustedMSEs.reduce((total,current)=>total+current) / aggregateResult.outOf;
-const baselineMSE = aggregateBaseline.adjustedMSEs.reduce((total,current)=>total+current) / aggregateBaseline.outOf;
+// const baselineMSE = aggregateBaseline.adjustedMSEs.reduce((total,current)=>total+current) / aggregateBaseline.outOf;
 
 console.log(`algorithm under test:\nphrases: ${aggregateResult.correct}/${aggregateResult.outOf}\nmse: ${resultMSE}\npages: ${perfectPages}/${i}`);
-console.log(`baseline:\nphrases: ${aggregateBaseline.correct}/${aggregateBaseline.outOf}\nmse: ${baselineMSE}\npages: ${baselinePerfectPages}/${i}`);
+// console.log(`baseline:\nphrases: ${aggregateBaseline.correct}/${aggregateBaseline.outOf}\nmse: ${baselineMSE}\npages: ${baselinePerfectPages}/${i}`);

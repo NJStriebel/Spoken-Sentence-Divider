@@ -1,0 +1,5 @@
+f000001 0.520 3.800 "Balaam obeyed God and sent the messengers away."
+f000002 3.800 5.180 "They left,"
+f000003 5.180 7.740 "but after several days they returned,"
+f000004 7.740 10.680 "and said that they would give Balaam more money"
+f000005 10.680 12.720 "and that he would become famous."

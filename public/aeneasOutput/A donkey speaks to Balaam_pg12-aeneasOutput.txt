@@ -1,0 +1,4 @@
+f000001 2.920 3.280 "King Balek was very angry."
+f000002 3.280 6.820 "He took Balaam to another mountain to make more sacrifices."
+f000003 6.820 10.120 "Again Balaam spoke the words God gave him"
+f000004 10.120 12.160 "and blessed the Israelites."

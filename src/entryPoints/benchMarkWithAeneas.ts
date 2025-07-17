@@ -1,5 +1,5 @@
 import { makePausesAndPauseAwareLength } from "../decoders/DecodeWithPausesAndPauseAwareLength";
-import { quietestNearby } from "../decoders/DecodeWithQuietestNearby";
+import { makeQuietestNearby, makeQuietestNearbyByInterval } from "../decoders/DecodeWithQuietestNearby";
 import { textLength } from "../decoders/DecodeWithTextLength";
 import { evaluateSplits } from "../utils/EvaluateSplits";
 import { makePauseFinder } from "../utils/FindPauses";
@@ -14,7 +14,11 @@ console.log("running...");
 const bookNames:string[] = [
     "05 God Tests Abraham s Love",
     "Cuando Dios hiso todo",
-    "Golden Rules"
+    "Golden Rules",
+    // "Bell in cat s neck",
+    // "Shaka and mazi",
+    // "Bangladesh",
+    "A donkey speaks to Balaam"
 ]
 
 const panglossFiles:string[] = [
@@ -30,21 +34,24 @@ const panglossFiles:string[] = [
     "lamo-s-0001"*/
 ].map(name=>`./data/TrainingSet1/${name}.xml`)
 
-//min gap refers to the smallest gap that can exist between two pauses without it being joined
-const MIN_GAP_PRE_DROP = 0.001;
-const PAUSE_DURATION_MIN = 0.05;
-const MIN_GAP_POST_DROP = 0.05;
-
 const K_MEANS_ITERATIONS=10;
 const K = 3;
 
 //determines where the threshold is placed. 1/4 means 25% of the way from the background noise centroid to the speech centroid.
-const FRACTION_OF_SPEECH = .25
+const FRACTION_OF_SPEECH = 1
 
-const DISTANCE_FACTOR = -0.025;
-const PAUSE_LENGTH_FACTOR = 1; //only matters relative to distance factor. Remove in final form.
+//min gap refers to the smallest gap that can exist between two pauses without it being joined
+const MIN_GAP_PRE_DROP = 0.0001;
+const PAUSE_DURATION_MIN = 0.2;
+const MIN_GAP_POST_DROP = 0.05;
+
+const DISTANCE_FACTOR = -0.05;
 const DISTANCE_POWER = 2;
-const PAUSE_LENGTH_POWER = .1;
+const PAUSE_LENGTH_POWER = 1;
+
+//Tuning the baseline
+const BASELINE_INTERVAL_DURATION = 0.2;
+const BASELINE_INTERVALS_PERCENT = 0.40;
 
 const problems = [];
 
@@ -87,13 +94,13 @@ const pauseFinder = makePauseFinder(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GA
 
 const algorithm :decodingAlgorithm = {
     name:"test-alg",
-    decode: makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_FACTOR, PAUSE_LENGTH_POWER).decode,
+    decode: makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_POWER).decode,
     findPauses: pauseFinder
 }
 
 const baseLineAlg : decodingAlgorithm = {
     name:"baseline",
-    decode: (is, ad, d) => quietestNearby(textLength(is, ad, d), ad, d),
+    decode: (is, ad, d) => makeQuietestNearbyByInterval(BASELINE_INTERVAL_DURATION, BASELINE_INTERVALS_PERCENT)(textLength(is, ad, d), ad, d),
     findPauses: pauseFinder
 }
 

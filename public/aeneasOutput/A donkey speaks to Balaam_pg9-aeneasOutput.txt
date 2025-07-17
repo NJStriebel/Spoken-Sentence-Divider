@@ -1,0 +1,5 @@
+f000001 0.000 1.240 "In a fit of rage,"
+f000002 1.240 3.580 "Balaam beat the donkey a third time."
+f000003 3.580 6.400 "Then the Lord caused the donkey to speak"
+f000004 6.400 7.460 "and she said,"
+f000005 7.460 11.480 "“What have I done that deserves you beating me three times?”"

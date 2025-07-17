@@ -409,7 +409,7 @@ function getThreshold(audioData:number[], iterations:number, k:number, fractionO
     if(speechThreshold === undefined){
         if(k<2) k=2;
         // console.log("calculating threshold")
-        const powerClusters = clusterWithKmeansAdjustToPeak(audioData, k, iterations, 5);
+        const powerClusters = clusterWithKmeansAdjustToPeak(audioData, k, iterations, 4);
         powerClusters.sort((a,b)=>b.centroid-a.centroid);
 
         //cluster 1 is speech, cluster 0 is background noise

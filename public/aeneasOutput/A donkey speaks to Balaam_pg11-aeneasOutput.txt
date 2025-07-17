@@ -1,0 +1,7 @@
+f000001 2.240 2.800 "So Balaam went to King Balek"
+f000002 2.800 4.040 "and the king took him to a mountain"
+f000003 4.040 7.620 "where he could look down and see the Israelite army."
+f000004 7.620 10.560 "Balaam offered sacrifices there"
+f000005 10.560 13.220 "then spoke the words that God gave him."
+f000006 13.220 15.440 "Instead of cursing the Israelites,"
+f000007 15.440 16.600 "he blessed them."

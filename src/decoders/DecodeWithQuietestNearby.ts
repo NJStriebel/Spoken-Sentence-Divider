@@ -102,3 +102,170 @@ export function quietestNearby(initialSegments: TimedTextSegment[], audioData: n
 
     return segments;
 }
+
+export function makeQuietestNearby(breakSpotCount=15, slopPercent=0.3){
+    return (initialSegments: TimedTextSegment[], audioData: number[], duration: number)=>{
+        let maxAmplitude = 0;
+        for (const amp of audioData) {
+            maxAmplitude = Math.max(maxAmplitude, Math.abs(amp));
+        }
+        const firstSound = audioData.findIndex(
+            amp => Math.abs(amp) > maxAmplitude * 0.1
+        );
+        //adjust is the fraction of the audio that comes after the leading silence
+        let adjust = 1;
+        if (firstSound > 0 && firstSound < audioData.length * 0.7) {
+            adjust = (audioData.length - firstSound) / audioData.length;
+        }
+        const startOfSound = duration * (1 - adjust);
+        //const realDuration = duration * adjust;
+        const adjustTime = (time: number): number => {
+            // We're going to not count the part of the audioData before firstSound.
+            // For example: suppose the first third of the audio is silence,
+            // and the first segment starts half way through the total duration.
+            // We want it instead to start half way through the non-silent final 2/3.
+            return time * adjust + startOfSound;
+        };
+        let segments = initialSegments.map(s => ({
+            start: adjustTime(s.start),
+            end: adjustTime(s.end),
+            text: s.text
+        }));
+        for (let i = 0; i < segments.length - 1; i++) {
+            const seg = segments[i];
+            const mid = (audioData.length * seg.end) / duration; //index of the break between segments
+            const slop =
+                (seg.end - seg.start) *
+                slopPercent *
+                audioData.length / duration; //how many array positions fall within the slop percentage
+            const start = mid - slop;
+            const nextSeg = segments[i + 1];
+            const nextSlop =
+                ((nextSeg.end - nextSeg.start) / duration) *
+                slopPercent *
+                audioData.length;
+            const end = mid + nextSlop;
+            const numberOfBreaks = Math.min(
+                breakSpotCount,
+                end - start
+            ); // paranoia, should always be breakSpotCount. Could only be end-start if a break's two adjacent segments were TINY
+            const breakSpots: number[] = [];
+            const breakSpotLength = (end - start) / numberOfBreaks;
+            for (let j = 0; j < numberOfBreaks; j++) {
+                let max = 0;
+                const startBreakSpot = Math.floor(
+                    start + j * breakSpotLength
+                );
+                const endBreakSpot = Math.floor(
+                    start + (j + 1) * breakSpotLength
+                );
+                for (let k = startBreakSpot; k < endBreakSpot; k++) {
+                    max = Math.max(max, Math.abs(audioData[k]));
+                }
+                breakSpots.push(max);
+            }
+            //after this loop is complete, breakspots will represent each of the 15 chunks by storing its loudest sound
+            const minBreakSpot = Math.min(...breakSpots);
+            const breakSpot = breakSpots.indexOf(minBreakSpot);
+            const newEnd =
+                (Math.floor(
+                    start + (breakSpot + 0.5) * breakSpotLength
+                ) *
+                    duration) /
+                audioData.length;
+            segments[i].end = newEnd;
+            segments[i + 1].start = newEnd;
+        }
+        // It sometimes looks better if we leave the silence out of the first segment,
+        // but if we guess wrong, there's no way to get the first split before the start of
+        // the first segment. Moreover, until we implement a way to trim the start of the audio,
+        // the first segment actually will include it, so this is also more realistic.
+        segments[0].start = 0;
+
+        return segments;
+    }
+}
+
+export function makeQuietestNearbyByInterval(breakSpotDuration=0.1, slopPercent=0.3){
+    return (initialSegments: TimedTextSegment[], audioData: number[], duration: number)=>{
+        let maxAmplitude = 0;
+        for (const amp of audioData) {
+            maxAmplitude = Math.max(maxAmplitude, Math.abs(amp));
+        }
+        const firstSound = audioData.findIndex(
+            amp => Math.abs(amp) > maxAmplitude * 0.1
+        );
+        //adjust is the fraction of the audio that comes after the leading silence
+        let adjust = 1;
+        if (firstSound > 0 && firstSound < audioData.length * 0.7) {
+            adjust = (audioData.length - firstSound) / audioData.length;
+        }
+        const startOfSound = duration * (1 - adjust);
+        //const realDuration = duration * adjust;
+        const adjustTime = (time: number): number => {
+            // We're going to not count the part of the audioData before firstSound.
+            // For example: suppose the first third of the audio is silence,
+            // and the first segment starts half way through the total duration.
+            // We want it instead to start half way through the non-silent final 2/3.
+            return time * adjust + startOfSound;
+        };
+        let segments = initialSegments.map(s => ({
+            start: adjustTime(s.start),
+            end: adjustTime(s.end),
+            text: s.text
+        }));
+        for (let i = 0; i < segments.length - 1; i++) {
+            const seg = segments[i];
+            const mid = (audioData.length * seg.end) / duration; //index of the break between segments
+            const slop =
+                (seg.end - seg.start) *
+                slopPercent *
+                audioData.length / duration; //how many array positions fall within the slop percentage
+            const start = mid - slop;
+            const nextSeg = segments[i + 1];
+            const nextSlop =
+                ((nextSeg.end - nextSeg.start) / duration) *
+                slopPercent *
+                audioData.length;
+            const end = mid + nextSlop;
+
+            const sampleLength = duration / audioData.length;
+            const slopDuration = (end-start) * sampleLength;            
+            const numberOfBreaks = slopDuration / breakSpotDuration;
+            
+            const breakSpots: number[] = [];
+            const breakSpotLength = (end - start) / numberOfBreaks;
+            for (let j = 0; j < numberOfBreaks; j++) {
+                let max = 0;
+                const startBreakSpot = Math.floor(
+                    start + j * breakSpotLength
+                );
+                const endBreakSpot = Math.floor(
+                    start + (j + 1) * breakSpotLength
+                );
+                for (let k = startBreakSpot; k < endBreakSpot; k++) {
+                    max = Math.max(max, Math.abs(audioData[k]));
+                }
+                breakSpots.push(max);
+            }
+            //after this loop is complete, breakspots will represent each of the 15 chunks by storing its loudest sound
+            const minBreakSpot = Math.min(...breakSpots);
+            const breakSpot = breakSpots.indexOf(minBreakSpot);
+            const newEnd =
+                (Math.floor(
+                    start + (breakSpot + 0.5) * breakSpotLength
+                ) *
+                    duration) /
+                audioData.length;
+            segments[i].end = newEnd;
+            segments[i + 1].start = newEnd;
+        }
+        // It sometimes looks better if we leave the silence out of the first segment,
+        // but if we guess wrong, there's no way to get the first split before the start of
+        // the first segment. Moreover, until we implement a way to trim the start of the audio,
+        // the first segment actually will include it, so this is also more realistic.
+        segments[0].start = 0;
+
+        return segments;
+    }
+}

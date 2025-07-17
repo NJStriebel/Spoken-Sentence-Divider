@@ -1,0 +1,5 @@
+f000001 0.000 2.280 "King Balek was full of rage,"
+f000002 2.280 3.280 "and shouted,"
+f000003 3.280 8.820 "“I called you to curse the Israelites and instead you have blessed them three times."
+f000004 8.820 10.060 "Get out of here!"
+f000005 10.060 11.480 "Go back home!”"

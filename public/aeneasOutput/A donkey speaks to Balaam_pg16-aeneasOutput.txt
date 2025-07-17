@@ -1,0 +1,2 @@
+f000001 0.240 1.800 "The story about Balaam"
+f000002 1.800 4.680 "is in Numbers 22-24."

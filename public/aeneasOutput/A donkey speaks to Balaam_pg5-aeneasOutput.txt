@@ -1,0 +1,5 @@
+f000001 0.240 2.120 "God spoke to Balaam again at night."
+f000002 2.120 3.040 "He said,"
+f000003 3.040 4.040 "“Ok,"
+f000004 4.040 6.100 "you can get up and go with these men,"
+f000005 6.100 8.720 "but you must only say what I tell you.”"
