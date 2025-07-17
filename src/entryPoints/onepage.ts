@@ -36,7 +36,6 @@ const pauseFinder:decodingAlgorithm = makePauseFinder(PAUSE_DURATION_MIN, MIN_GA
 const algorithms = [
     pauseFinder,
     {name:"algorithm-under-test", decode:makePausesAndPauseAwareLength(PAUSE_DURATION_MIN, MIN_GAP_PRE_DROP, MIN_GAP_POST_DROP, K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH, DISTANCE_FACTOR, DISTANCE_POWER, PAUSE_LENGTH_POWER).decode, findPauses:pauseFinder.findPauses!} as decodingAlgorithm,
-    {name:"pause-aware-text-length", decode:makePauseAwareTextLength(K_MEANS_ITERATIONS, K, FRACTION_OF_SPEECH)},
     {name:"text-length", decode:textLength},
     {name:"quietest-max-nearby-adjustment", decode:(is:TimedTextSegment[], ad:number[], d:number)=>makeQuietestNearbyByInterval(0.16, .40)(textLength(is, ad, d), ad, d), findPauses:pauseFinder.findPauses!} as decodingAlgorithm,
     //{name:"aeneas", decode:(is, ad, d)=>aeneasSegs, findPauses:pauseFinder.findPauses} as decodingAlgorithm

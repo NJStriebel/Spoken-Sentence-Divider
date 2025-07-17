@@ -36,7 +36,7 @@ const K_MEANS_ITERATIONS=10;
 const K = 3;
 
 //determines where the threshold is placed. 1/4 means 25% of the way from the background noise centroid to the speech centroid.
-const FRACTION_OF_SPEECH = 0.75
+const FRACTION_OF_SPEECH = 1
 
 //min gap refers to the smallest gap that can exist between two pauses without it being joined
 const MIN_GAP_PRE_DROP = 0.0001;
