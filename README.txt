@@ -14,4 +14,7 @@ place either book's audio directory in ./public/data/HandAlgined and name it <BO
 
 To run a file in ./src/entryPoints other than onepage.ts, change the src attribute on the script element in ./index.html to point to the desired file path.
 
+To test an algorithm's performance on a significant number of bloom books, run ./src/entryPoints/BulkSplits.ts
+When you do, be sure to add the names of any additional books you wish to test to the bookNames array starting on line 12
+
 onePangloss.ts and TestJobExample.ts were early tests that were later broken by changes to underlying method signatures.
